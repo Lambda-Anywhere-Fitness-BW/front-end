@@ -5,6 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MarketingHeader() {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <div className={classes.root}>
@@ -49,10 +51,12 @@ export default function MarketingHeader() {
           <Button className={classes.HeaderButton} color="inherit">
             FAQs
           </Button>
-          <Button className={classes.HeaderButton} color="inherit">
+
+          {/* ADD onClick + Routes here */}
+          <Button onClick={() => history.push('/login')} className={classes.HeaderButton} color="inherit">
             Log-in
           </Button>
-          <Button className={classes.HeaderButton} color="inherit">
+          <Button onClick={() => history.push('/register')} className={classes.HeaderButton} color="inherit">
             Sign-Up
           </Button>
         </Toolbar>
