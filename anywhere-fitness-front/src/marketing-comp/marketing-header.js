@@ -50,6 +50,9 @@ export default function MarketingHeader() {
             FAQs
           </Button>
           <Button className={classes.HeaderButton} color="inherit">
+            Log-in
+          </Button>
+          <Button className={classes.HeaderButton} color="inherit">
             Sign-Up
           </Button>
         </Toolbar>
