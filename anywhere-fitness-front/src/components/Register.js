@@ -3,12 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
-const initialSignUp = {
-  name: "", //text
-  email: "", //email
-  password: "", //password
-};
-
 const useStyles = makeStyles({
   header: {
     height: "12vh",
@@ -56,6 +50,7 @@ const useStyles = makeStyles({
     padding: '4%',
     borderRadius: '5px',
     fontFamily: 'Chonburi',
+    color: '#6f6b6b'
   },
   buttonStyles: {
     width: '20%',
@@ -67,20 +62,61 @@ const useStyles = makeStyles({
     fontSize: '1rem',
     textAlign: 'center',
     marginLeft: '1.5%'
-}
+},
+textStyles: {
+textAlign: 'center',
+margin: '5% 0 0 0',
+},
 })
 
-export default function SignUpInstructor() {
+const initialSignUp = {
+  name: "", //text
+  username: '',
+  email: "", //email
+  password: "", //password
+  bio: "",
+  avi_url: "",
+  role: ''
+};
+
+export default function Register(props) {
 
   const classes = useStyles();
   const history = useHistory();
 
+  const [form, setForm] = useState( initialSignUp )
+    const handleSubmit = (ev) =>{
+        ev.preventDefault();
+        props.signUpSubmit(form)
+        history.push('/login')
+    };
+
+    const handleChange = (ev) => {
+        //const { name, value } = ev
+        setForm({
+            ...form,
+            [ev.target.name]: ev.target.value
+        })
+        console.log(form)
+    };
+
+    // IN PROGRESS
+    const handleSelect = (ev) => {
+      //ev.preventDefault();
+      console.log(ev)
+      setForm({
+        ...form,
+        role: ev.target.value
+      })
+      // console.log(form.role)
+
+    }
+
   return (
-    <section className="signpInstructor-page"> 
-    {/* //onSubmit={onSubmit}> */}
+    <form className="signup-page" onSubmit={handleSubmit}> 
       <div className={classes.header}>
         <h2 className={classes.headerh3}>ANYWHERE FITNESS</h2>
-        <Button onClick={() => history.push('/')}  className={classes.headerLink} >HOME</Button>
+        <Button onClick={() => history.push("/")} className={classes.headerLink}>HOME</Button>
       </div>
       <form className={classes.loginStyles}>
         <h2 className={classes.formh2h3}>ANYWHERE FITNESS</h2>
@@ -89,9 +125,21 @@ export default function SignUpInstructor() {
           <input
             type="text"
             name="name"
-            // onChange={onChange}
+            onChange={handleChange}
             // value={signUp.name}
-            placeholder="NAME"
+            placeholder="FULL NAME"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="text"
+            name="username"
+            onChange={handleChange}
+            // value={signUp.name}
+            placeholder="USERNAME"
             className={classes.inputStyles}
             required
           />
@@ -101,7 +149,7 @@ export default function SignUpInstructor() {
           <input
             type="email"
             name="email"
-            // onChange={onChange}
+            onChange={handleChange}
             // value={signUp.email}
             placeholder="EMAIL"
             className={classes.inputStyles}
@@ -113,7 +161,7 @@ export default function SignUpInstructor() {
           <input
             type="password"
             name="password"
-            // onChange={onChange}
+            onChange={handleChange}
             // value={signUp.password}
             placeholder="PASSWORD"
             className={classes.inputStyles}
@@ -121,10 +169,31 @@ export default function SignUpInstructor() {
           />
         </label>
         <br />
+        <label>
+          <input
+            type="text"
+            name="avi_url"
+            onChange={handleChange}
+            // value={signUp.name}
+            placeholder="image link"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label><p className={classes.textStyles}>Account Type</p>
+          <select name='account' className={classes.inputStyles}
+          onChange={handleSelect} value={form.role}>
+            <option value=''>---Select an Option---</option>
+            <option value='client'>Client</option>
+            <option value='instructor'>Instructor</option>
+          </select>
+        </label>
+        <br />
         <button className={classes.buttonStyles}>SIGN UP</button>
         <br />
         <button className={classes.buttonStyles}>CANCEL</button>
       </form>
-    </section>
+    </form>
   );
 }
