@@ -64,8 +64,7 @@ const useStyles = makeStyles({
 });
 
 const initialLogin = {
-  name: "",
-  email: "",
+  username: "",
   password: "",
 };
 
@@ -113,9 +112,9 @@ export default function Login() {
         <h3 className={classes.formh2h3}>EXISTING USERS</h3>
         <label>
           <input
-            type="email"
-            name="email"
-            placeholder="EMAIL"
+            type="username"
+            name="username"
+            placeholder="USERNAME"
             onChange={handleChange}
             required
             className={classes.inputStyles}
