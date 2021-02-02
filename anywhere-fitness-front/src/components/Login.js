@@ -85,10 +85,7 @@ export default function Login() {
     e.preventDefault();
     console.log("INSIDE BUTTON CLICK");
     axios
-      .post(
-        "https://bw44-anywhere-fitness.herokuapp.com/register/client",
-        loginForm
-      ) // ADD ENDPOINT and credentials here
+      .post("https://bw44-anywhere-fitness.herokuapp.com/login", loginForm) // ADD ENDPOINT and credentials here
       .then((res) => {
         console.log(res.data.payload);
         localStorage.setItem("token", res.data.payload);
@@ -119,6 +116,7 @@ export default function Login() {
             type="email"
             name="email"
             placeholder="EMAIL"
+            onChange={handleChange}
             required
             className={classes.inputStyles}
           />
@@ -128,6 +126,7 @@ export default function Login() {
           <input
             type="password"
             name="password"
+            onChange={handleChange}
             placeholder="PASSWORD"
             required
             className={classes.inputStyles}
