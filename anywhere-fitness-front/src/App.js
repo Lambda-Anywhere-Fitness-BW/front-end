@@ -1,14 +1,23 @@
-import React from "react";
+import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Login from './components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import SignUpInstructor from './components/SignUpInstructor'
+import MarketingPage from './marketing-comp/marketingPage';
 
-import MarketingPage from "./marketing-comp/marketingPage";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <h1>Let's fuckin build!</h1>
-      <MarketingPage />
-    </div>
+    <>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={MarketingPage}/>
+        <Route path="/login" component={Login}/>
+        <Route path="/register" component={SignUpInstructor} />
+        <PrivateRoute path="/dash"/>
+      </Switch>
+    </Router>
+    </>
   );
 }
-
 export default App;
