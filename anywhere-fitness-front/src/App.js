@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Login from './components/Login';
@@ -6,9 +7,13 @@ import Register from './components/Register'
 import MarketingPage from './marketing-comp/marketingPage';
 
 
+//test
+import MyClassesMain from "./components/client/MyClassesMain";
+
 const App = () => {
   return (
     <>
+
     <Router>
       <Switch>
         <Route exact path="/" component={MarketingPage}/>
@@ -17,7 +22,8 @@ const App = () => {
         <PrivateRoute path="/dash"/>
       </Switch>
     </Router>
+
     </>
   );
-}
+};
 export default App;
