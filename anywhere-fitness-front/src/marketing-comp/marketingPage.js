@@ -1,8 +1,10 @@
 import React from "react";
 
+//!module imports
 import MarketingHeader from "./marketing-header";
 import Banner from "./banner";
 import HowItWorks from "./HowItWorks";
+import Pricing from "./Pricing";
 
 const MarketingPage = () => {
   return (
@@ -10,6 +12,7 @@ const MarketingPage = () => {
       <MarketingHeader />
       <Banner />
       <HowItWorks />
+      <Pricing />
     </div>
   );
 };
