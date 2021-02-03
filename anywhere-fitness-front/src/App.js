@@ -16,13 +16,14 @@ import PunchPassMain from "./components/client/punchpass/PunchPassMain";
 import InstructorClassesMain from "./components/instructor/classes/inClassMain";
 import InPunchPassMain from "./components/instructor/punchpass/InPunchPassMain";
 import CreatePunchPass from "./components/instructor/punchpass/CreatePunchPass";
+import ClientProfile from "./components/client/ClientProfile";
 
 const App = () => {
   return (
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={CreatePunchPass} />
+          <Route exact path="/" component={ClientProfile} />
           <Route path="/login" component={Login} />
 
           <Route path="/register/client" component={ClientRegister} />
