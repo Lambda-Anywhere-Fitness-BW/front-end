@@ -22,12 +22,12 @@ const App = () => {
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={CreatePunchPass} />
+          <Route exact path="/" component={MarketingPage} />
           <Route path="/login" component={Login} />
 
           <Route path="/register/client" component={ClientRegister} />
           <Route path="/register/instructor" component={InstructorRegister} />
-
+          <Route path ="/register/instructor/punchpass" component={CreatePunchPass} />
           <PrivateRoute path="/dash" />
         </Switch>
       </Router>

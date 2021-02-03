@@ -18,3 +18,14 @@ export const signUpSubmitClient = (form) => (dispatch) => {
       console.log(err);
     });
 };
+
+export const signUpSubmitInstructor = (form) => (dispatch) => {
+    axiosWithAuth()
+      .post(`${API_BASE}/register/instructor`, form)
+      .then((res) => {
+        dispatch({ type: USER_SIGNED_UP, payload: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
