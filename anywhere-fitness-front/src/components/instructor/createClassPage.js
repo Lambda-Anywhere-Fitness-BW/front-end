@@ -10,18 +10,18 @@ import { createClass } from "../../utils/actions/userActions";
 const useStyles = makeStyles({});
 
 const newClass = {
-  name: "Boxing",
+  name: "Running",
   type: "Yoga",
-  start_time: "8:30AM",
-  duration: "45 mins",
+  start_time: "9:30AM",
+  duration: "60 mins",
   intensity_level: 1,
-  location: "Big Boy Yoga",
+  location: "Pier 69",
   max_size: 12,
 };
 
 console.log("HS", newClass);
 
-const CreateClassPage = ({ dispatch }) => {
+const CreateClassPage = ({ dispatch, createClass }) => {
   const [classForm, setClassForm] = useState(newClass);
 
   const handleChange = (e) => {

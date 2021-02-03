@@ -5,6 +5,7 @@ export const REMOVE_CLASS = "REMOVE_CLASS";
 export const CREATE_PUNCHPASS = "CREATE_PUNCHPASS";
 
 //action creators returning action objects
+//!use dispatch
 export const createClass = (classObject) => {
   console.log("class created");
   return { type: CREATE_CLASS, payload: classObject };
