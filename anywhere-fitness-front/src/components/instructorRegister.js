@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { signUpSubmitClient } from '../utils/actions/authActions'
+import { signUpSubmitInstructor } from '../utils/actions/authActions'
 
 const useStyles = makeStyles({
   header: {
@@ -77,10 +77,10 @@ const initialSignUp = {
   password: "", 
   bio: "",
   avi_url: "", // link
-  role: 'Client'
+  role: 'Instructor'
 };
 
-export default function ClientRegister(props) {
+export default function InstructorRegister(props) {
 
   const classes = useStyles();
   const history = useHistory();
@@ -89,8 +89,7 @@ export default function ClientRegister(props) {
 
   const handleSubmit = (ev) =>{
     ev.preventDefault();
-    console.log(form)
-    signUpSubmitClient(form)
+    signUpSubmitInstructor(form)
     history.push('/login')
     };
 
@@ -100,7 +99,7 @@ export default function ClientRegister(props) {
           ...form,
           [ev.target.name]: ev.target.value
       })
-      
+      console.log(form)
   };
 
   return (
@@ -175,7 +174,7 @@ export default function ClientRegister(props) {
         <label><p className={classes.textStyles}>Account Type</p>
           <select name='role' className={classes.inputStyles}
           onChange={handleChange} value={form.role}>
-            <option name='role' value='Client'>Client</option>
+            <option name='role' value='Instructor'>Instructor</option>
           </select>
         </label>
         <br />
