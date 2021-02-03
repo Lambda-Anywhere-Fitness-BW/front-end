@@ -56,8 +56,11 @@ export default function MarketingHeader() {
           <Button onClick={() => history.push('/login')} className={classes.HeaderButton} color="inherit">
             Log-in
           </Button>
-          <Button onClick={() => history.push('/register')} className={classes.HeaderButton} color="inherit">
-            Sign-Up
+          <Button onClick={() => history.push('/register/client')} className={classes.HeaderButton} color="inherit">
+            Client Sign-Up
+          </Button>
+          <Button onClick={() => history.push('/register/instructor')} className={classes.HeaderButton} color="inherit">
+            Instructor Sign-Up
           </Button>
         </Toolbar>
       </AppBar>
