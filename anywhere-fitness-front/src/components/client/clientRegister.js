@@ -2,112 +2,115 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { signUpSubmitClient } from '../../utils/actions/authActions'
+import { signUpSubmitClient } from "../../utils/actions/AuthActions";
 
 const useStyles = makeStyles({
   header: {
     height: "12vh",
     maxWidth: "100%",
-    background: '#2160A0',
-    color: 'white',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    fontFamily: 'Chonburi',
-   },
-   headerh3: {
-    color: 'white',
-    marginLeft: '3%'
-   },
-   headerLink: {
-    marginRight:"3%",
-    color: 'white',
-    textDecoration: 'none',
-    fontFamily: 'Chonburi',
+    background: "#2160A0",
+    color: "white",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    fontFamily: "Chonburi",
+  },
+  headerh3: {
+    color: "white",
+    marginLeft: "3%",
+  },
+  headerLink: {
+    marginRight: "3%",
+    color: "white",
+    textDecoration: "none",
+    fontFamily: "Chonburi",
     hover: {
-    textDecoration: 'underline'
-    }
+      textDecoration: "underline",
+    },
   },
   loginStyles: {
-    margin: '4% auto 3% auto',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '50%',
-    padding: '5% 0% 5% 0%',
-    background: '#E9E9E9',
-    borderRadius:'15px',
-    lineHeight: '140%',
-    letterSpacing: '-0.5px',
-    fontFamily: 'Chonburi'
-    },
+    margin: "4% auto 3% auto",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "50%",
+    padding: "5% 0% 5% 0%",
+    background: "#E9E9E9",
+    borderRadius: "15px",
+    lineHeight: "140%",
+    letterSpacing: "-0.5px",
+    fontFamily: "Chonburi",
+  },
   formh2h3: {
-    margin: '1%',
-    textAlign: 'center',
-    paddingBottom: '2%',
-      },
+    margin: "1%",
+    textAlign: "center",
+    paddingBottom: "2%",
+  },
   inputStyles: {
-    padding: '4%',
-    borderRadius: '5px',
-    fontFamily: 'Chonburi',
-    color: '#6f6b6b'
+    padding: "4%",
+    borderRadius: "5px",
+    fontFamily: "Chonburi",
+    color: "#6f6b6b",
   },
   buttonStyles: {
-    width: '20%',
-    background: '#2160A0',
-    color: 'white',
-    borderRadius: '5px',
-    fontFamily: 'Chonburi',
-    padding: '1.75%',
-    fontSize: '1rem',
-    textAlign: 'center',
-    marginLeft: '1.5%'
-},
-textStyles: {
-textAlign: 'center',
-margin: '5% 0 0 0',
-},
-})
+    width: "20%",
+    background: "#2160A0",
+    color: "white",
+    borderRadius: "5px",
+    fontFamily: "Chonburi",
+    padding: "1.75%",
+    fontSize: "1rem",
+    textAlign: "center",
+    marginLeft: "1.5%",
+  },
+  textStyles: {
+    textAlign: "center",
+    margin: "5% 0 0 0",
+  },
+});
 
 const initialSignUp = {
   name: "",
-  username: '',
-  email: "", 
-  password: "", 
+  username: "",
+  email: "",
+  password: "",
   bio: "",
   avi_url: "", // link
-  role: 'Client'
+  role: "Client",
 };
 
 export default function ClientRegister(props) {
-
   const classes = useStyles();
   const history = useHistory();
 
-  const [form, setForm] = useState( initialSignUp )
+  const [form, setForm] = useState(initialSignUp);
 
-  const handleSubmit = (ev) =>{
+  const handleSubmit = (ev) => {
     ev.preventDefault();
-    console.log(form)
-    signUpSubmitClient(form)
-    history.push('/login')
-    };
+    console.log(form);
+    signUpSubmitClient(form);
+    history.push("/login");
+  };
 
   const handleChange = (ev) => {
-      //const { name, value } = ev
-      setForm({
-          ...form,
-          [ev.target.name]: ev.target.value
-      })
-      
+    //const { name, value } = ev
+    setForm({
+      ...form,
+      [ev.target.name]: ev.target.value,
+    });
   };
 
   return (
-    <section className="signup-page" onSubmit={handleSubmit}> 
+    <section className="signup-page" onSubmit={handleSubmit}>
       <div className={classes.header}>
         <h2 className={classes.headerh3}>ANYWHERE FITNESS</h2>
-        <Button onClick={() => history.push("/")} className={classes.headerLink}>HOME</Button>
+        <Button
+          onClick={() => history.push("/")}
+          className={classes.headerLink}
+        >
+          HOME
+        </Button>
       </div>
       <form className={classes.loginStyles}>
         <h2 className={classes.formh2h3}>ANYWHERE FITNESS</h2>
@@ -172,10 +175,17 @@ export default function ClientRegister(props) {
           />
         </label>
         <br />
-        <label><p className={classes.textStyles}>Account Type</p>
-          <select name='role' className={classes.inputStyles}
-          onChange={handleChange} value={form.role}>
-            <option name='role' value='Client'>Client</option>
+        <label>
+          <p className={classes.textStyles}>Account Type</p>
+          <select
+            name="role"
+            className={classes.inputStyles}
+            onChange={handleChange}
+            value={form.role}
+          >
+            <option name="role" value="Client">
+              Client
+            </option>
           </select>
         </label>
         <br />

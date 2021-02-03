@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 //import UI
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
-import { createClass } from "../../utils/actions/userActions";
+import { createClass } from "../../../utils/actions/userActions";
 
 const useStyles = makeStyles({});
 
