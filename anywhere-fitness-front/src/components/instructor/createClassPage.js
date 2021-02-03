@@ -20,7 +20,7 @@ const newClass = {
 };
 
 console.log("HS", newClass);
-
+//added dispatch to this
 const CreateClassPage = ({ dispatch, createClass }) => {
   const [classForm, setClassForm] = useState(newClass);
 
