@@ -6,6 +6,7 @@ export const CREATE_PUNCHPASS = "CREATE_PUNCHPASS";
 
 //action creators returning action objects
 export const createClass = (classObject) => {
+  console.log("class created");
   return { type: CREATE_CLASS, payload: classObject };
 };
 

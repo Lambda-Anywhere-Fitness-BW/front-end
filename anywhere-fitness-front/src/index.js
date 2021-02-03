@@ -5,20 +5,14 @@ import App from "./App";
 //redux things
 import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
+import { reducer } from "./utils/reducers";
 
-//import middlware
+//import middlwarenp
 import thunk from "redux-thunk";
-import logger from "logger";
+import logger from "redux-logger";
 
-//import reducer when created
-
-function dummyReducer() {
-  return {
-    title: "Hello world! I'm in the Redux store!",
-  };
-}
-
-const store = createStore(dummyReducer, applyMiddleware(thunk, logger));
+const store = createStore(reducer, applyMiddleware(thunk, logger));
+console.log("STORE", store);
 
 ReactDOM.render(
   <React.StrictMode>
