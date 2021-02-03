@@ -37,8 +37,10 @@ export const reducer = (state = initialState, action) => {
   console.log("STATE", state);
   switch (action.type) {
     case "CREATE_CLASS":
+      console.log("inside the reducer bruuh");
       //the list of classes in state is copied, and then this class is added using the create a class form information.
       return {
+        ...state,
         classes: [...state.classes, action.payload],
       };
     case "DELETE_CLASS":

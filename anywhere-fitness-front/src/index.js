@@ -11,7 +11,12 @@ import { reducer } from "./utils/reducers";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 
-const store = createStore(reducer, applyMiddleware(thunk, logger));
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+//applyMiddleware(thunk, logger));
 console.log("STORE", store);
 
 ReactDOM.render(

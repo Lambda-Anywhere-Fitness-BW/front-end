@@ -9,7 +9,7 @@ import { createClass } from "../../utils/actions/userActions";
 
 const useStyles = makeStyles({});
 
-const initialState = {
+const newClass = {
   name: "Boxing",
   type: "Yoga",
   start_time: "8:30AM",
@@ -19,22 +19,24 @@ const initialState = {
   max_size: 12,
 };
 
-console.log("HS", initialState);
+console.log("HS", newClass);
 
-const CreateClassPage = () => {
-  const [classForm, setClassForm] = useState(initialState);
+const CreateClassPage = ({ dispatch }) => {
+  const [classForm, setClassForm] = useState(newClass);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setClassForm({
-      initialState,
-      [name]: value,
-    });
+    dispatch(
+      setClassForm({
+        newClass,
+        [name]: value,
+      })
+    );
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createClass(initialState);
+    createClass(newClass);
   };
 
   const classes = useStyles();
@@ -47,14 +49,14 @@ const CreateClassPage = () => {
         <form onSubmit={handleSubmit}>
           <label>
             <p>Class Name: </p>
-            <input name="name" type="text" required />
+            <input name="name" type="text" required value={newClass.name} />
           </label>
 
           <label>
             <p>Class Type: </p>
             <div>
               <p>kickboxing</p>
-              <input name="kickboxing" type="checkbox" />
+              <input name="kickboxing" type="checkbox" value={newClass.type} />
             </div>
 
             <div>
@@ -75,17 +77,17 @@ const CreateClassPage = () => {
 
           <label>
             <p>Start Date:</p>
-            <input name="date" type="date" required />
+            <input name="date" type="date" />
           </label>
 
           <label>
             <p>Start Time:</p>
-            <input name="time" type="time" required />
+            <input name="time" type="time" />
           </label>
 
           <label>
             <p>Duration:</p>
-            <select name="duration" required>
+            <select name="duration">
               <option value="">---Select a Duration---</option>
               <option value="30">30 minutes</option>
               <option value="45">45 minutes</option>
@@ -96,9 +98,9 @@ const CreateClassPage = () => {
           <label>
             <p>Intensity Level:</p>
             <select name="intensity" required>
-              <option value="">---Select an Intensity--</option>
+              {/* <option value="">---Select an Intensity--</option>
               <option value="1">1</option>
-              <option value="2">2</option>
+              <option value="2">2</option> */}
               <option value="3">3</option>
             </select>
           </label>
@@ -110,12 +112,18 @@ const CreateClassPage = () => {
               type="string"
               placeholder='i.e "Iron Fist Gym"'
               required
+              value={newClass.location}
             />
           </label>
 
           <label>
             <p>Max Class Size</p>
-            <input name="classSize" type="number" required />
+            <input
+              name="classSize"
+              type="number"
+              required
+              value={newClass.max_size}
+            />
           </label>
           <Button variant="outlined" type="submit">
             {" "}
