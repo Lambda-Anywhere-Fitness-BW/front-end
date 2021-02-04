@@ -28,7 +28,7 @@ const App = () => {
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={ClientRegister} />
+          <Route exact path="/" component={MyClassesMain} />
 
           <Route path="/login" component={Login} />
 
@@ -38,13 +38,13 @@ const App = () => {
             path="/register/instructor/punchpass"
             component={CreatePunchPass}
           /> */}
-          <PrivateRoute path="/login/instructor/classes" />
-          <PrivateRoute path="/login/instructor/punchpasses" />
-          <PrivateRoute path="/login/instructor/profile" />
-          <PrivateRoute path="/login/client/search" />
-          <PrivateRoute path="/login/client/classes" />
-          <PrivateRoute path="/login/client/punchpasses" />
-          <PrivateRoute path="/login/client/profile" />
+          <PrivateRoute path="/instructor/classes" />
+          <PrivateRoute path="/instructor/punchpasses" />
+          <PrivateRoute path="/instructor/profile" />
+          <PrivateRoute path="/client/search" />
+          <PrivateRoute path="/client/classes" />
+          <PrivateRoute path="/client/punchpasses" />
+          <PrivateRoute path="/client/profile" />
         </Switch>
       </Router>
     </>

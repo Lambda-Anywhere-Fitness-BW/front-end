@@ -4,7 +4,9 @@ const SearchList = () => {
   return (
     <div>
       <Grid container>
-        <Grid item></Grid>
+        <Grid container>
+          <Grid item></Grid>
+        </Grid>
       </Grid>
     </div>
   );
