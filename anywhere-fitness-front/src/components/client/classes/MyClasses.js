@@ -55,13 +55,13 @@ export default function AppHeader() {
       <Grid container className={classes.ClassBox}>
         <Grid item className={classes.textBox}>
           <Typography variant="h2" className={classes.header}>
-            Name of the punchpass
+            Kick-Boxing on Feb 12
           </Typography>
-          <Typography variant="h3">Number of classes required</Typography>
-          <Typography variant="h5">Class Name: </Typography>
+          <Typography variant="h3">Instructor: Daniel Vargas</Typography>
+          <Typography variant="h5">Location: K.O. Boxing Gym</Typography>
           <Typography variant="h5">
-            Reward: Learn the basics of kickboxing with Daniel! You’ll spend 45
-            minutes working like you never have!{" "}
+            Learn the basics of kickboxing with Daniel! You’ll spend 45 minutes
+            working like you never have!{" "}
           </Typography>
         </Grid>
         <Grid item className={classes.imageBox}>
