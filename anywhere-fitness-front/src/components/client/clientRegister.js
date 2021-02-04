@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { signUpSubmitClient } from "../../utils/actions/authActions";
 import { connect } from "react-redux";
+import MarketingHeader from "../../marketing-comp/marketing-header";
+import SignUpHeader from "../SignUpHeader";
 
 const useStyles = makeStyles({
   header: {
@@ -75,9 +77,12 @@ const initialSignUp = {
   name: "andrew",
   email: "andy@andy.com",
   password: "1234",
-  username: "andy",
-  bio: "",
-  avi_url: "https://bit.ly/3cFRXW6", // link
+  //!username must be over 5 characters
+  username: "bigandy",
+  fitnesslevel: 3,
+  location: "LA",
+  bio: "I like turtles",
+  aviurl: "https://bit.ly/3cFRXW6", // link
 };
 
 const ClientRegister = ({ dispatch, signUpSubmitClient }) => {
@@ -95,28 +100,18 @@ const ClientRegister = ({ dispatch, signUpSubmitClient }) => {
 
   const handleChange = (ev) => {
     const { name, value } = ev.target;
-    dispatch(
-      setForm({
-        ...form,
-        [ev.target.name]: value,
-      })
-    );
+    setForm({
+      ...form,
+      [name]: value,
+    });
   };
 
   return (
     <section className="signup-page" onSubmit={handleSubmit}>
-      <div className={classes.header}>
-        <h2 className={classes.headerh3}>ANYWHERE FITNESS</h2>
-        <Button
-          onClick={() => history.push("/")}
-          className={classes.headerLink}
-        >
-          HOME
-        </Button>
-      </div>
+      <SignUpHeader />
       <form className={classes.loginStyles}>
         <h2 className={classes.formh2h3}>ANYWHERE FITNESS</h2>
-        <h3 className={classes.formh2h3}>NEW USER</h3>
+        <h3 className={classes.formh2h3}>CLIENT REGISTER</h3>
         <label>
           <input
             type="text"
@@ -135,7 +130,7 @@ const ClientRegister = ({ dispatch, signUpSubmitClient }) => {
             name="username"
             onChange={handleChange}
             value={form.username}
-            placeholder="USERNAME"
+            placeholder="USERNAME OVER 5 LETTERS"
             className={classes.inputStyles}
             required
           />
@@ -168,9 +163,33 @@ const ClientRegister = ({ dispatch, signUpSubmitClient }) => {
         <label>
           <input
             type="text"
-            name="avi_url"
+            name="bio"
             onChange={handleChange}
-            value={form.avi_url}
+            value={form.bio}
+            placeholder="About You"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="text"
+            name="location"
+            onChange={handleChange}
+            value={form.location}
+            placeholder="Location"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="text"
+            name="aviurl"
+            onChange={handleChange}
+            value={form.aviurl}
             placeholder="image link"
             className={classes.inputStyles}
             required
@@ -178,16 +197,22 @@ const ClientRegister = ({ dispatch, signUpSubmitClient }) => {
         </label>
         <br />
         <label>
-          <p className={classes.textStyles}>Account Type</p>
+          <p className={classes.textStyles}>Fitness Level</p>
           <select
-            name="role"
+            name="fitnesslevel"
             className={classes.inputStyles}
             onChange={handleChange}
-            value={form.role}
+            value={form.fitnesslevel}
           >
-            <option name="role" value="Client">
-              Client
+            <option name="fitnesslevel" value="1">
+              Beginner
             </option>
+            {/* <option name="fitnesslevel" value="2">
+              Middle
+            </option>
+            <option name="fitnesslevel" value="3">
+              Expert
+            </option> */}
           </select>
         </label>
         <br />
