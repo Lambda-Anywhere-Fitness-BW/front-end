@@ -27,7 +27,7 @@ const App = () => {
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={InPunchPassMain} />
+          <Route exact path="/" component={MarketingPage} />
 
           <Route path="/login" component={Login} />
 
