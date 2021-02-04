@@ -4,6 +4,9 @@ import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { signUpSubmitClient } from "../../utils/actions/authActions";
 
+import { connect } from "react-redux";
+
+
 const useStyles = makeStyles({
   header: {
     height: "12vh",
@@ -71,16 +74,16 @@ const useStyles = makeStyles({
 });
 
 const initialSignUp = {
-  name: "",
-  username: "",
-  email: "",
-  password: "",
+  name: "andrew",
+  email: "andy@andy.com",
+  password: "1234",
+  username: "andy",
   bio: "",
-  avi_url: "", // link
-  role: "Client",
+  avi_url: "https://bit.ly/3cFRXW6", // link
+  
 };
 
-export default function ClientRegister(props) {
+const ClientRegister = ({ dispatch, signUpSubmitClient }) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -88,17 +91,18 @@ export default function ClientRegister(props) {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    console.log(form);
+    console.log('FORM',form);
     signUpSubmitClient(form);
     history.push("/login");
   };
 
   const handleChange = (ev) => {
-    //const { name, value } = ev
-    setForm({
-      ...form,
-      [ev.target.name]: ev.target.value,
-    });
+      const { name, value } = ev.target;
+      dispatch(setForm({
+        ...form,
+        [ev.target.name]: value,
+      })
+    );
   };
 
   return (
@@ -120,7 +124,7 @@ export default function ClientRegister(props) {
             type="text"
             name="name"
             onChange={handleChange}
-            // value={signUp.name}
+            value={form.name}
             placeholder="FULL NAME"
             className={classes.inputStyles}
             required
@@ -132,7 +136,7 @@ export default function ClientRegister(props) {
             type="text"
             name="username"
             onChange={handleChange}
-            // value={signUp.name}
+            value={form.username}
             placeholder="USERNAME"
             className={classes.inputStyles}
             required
@@ -144,7 +148,7 @@ export default function ClientRegister(props) {
             type="email"
             name="email"
             onChange={handleChange}
-            // value={signUp.email}
+            value={form.email}
             placeholder="EMAIL"
             className={classes.inputStyles}
             required
@@ -156,7 +160,7 @@ export default function ClientRegister(props) {
             type="password"
             name="password"
             onChange={handleChange}
-            // value={signUp.password}
+            value={form.password}
             placeholder="PASSWORD"
             className={classes.inputStyles}
             required
@@ -168,7 +172,7 @@ export default function ClientRegister(props) {
             type="text"
             name="avi_url"
             onChange={handleChange}
-            // value={signUp.name}
+            value={form.avi_url}
             placeholder="image link"
             className={classes.inputStyles}
             required
@@ -195,4 +199,10 @@ export default function ClientRegister(props) {
       </form>
     </section>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  return state;
+};
+
+export default connect(mapStateToProps, { signUpSubmitClient })(ClientRegister)
