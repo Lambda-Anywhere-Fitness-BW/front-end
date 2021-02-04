@@ -5,6 +5,9 @@ import Button from "@material-ui/core/Button";
 import { signUpSubmitClient } from "../../utils/actions/authActions";
 import { connect } from "react-redux";
 
+import { connect } from "react-redux";
+
+
 const useStyles = makeStyles({
   header: {
     height: "12vh",
