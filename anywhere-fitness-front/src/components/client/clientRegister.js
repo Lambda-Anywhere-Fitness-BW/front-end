@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { signUpSubmitClient } from "../../utils/actions/authActions";
+import { signUpSubmitClient } from "../../utils/actions/AuthActions";
 import { connect } from "react-redux";
 
 import { connect } from "react-redux";
-
 
 const useStyles = makeStyles({
   header: {
@@ -81,7 +80,6 @@ const initialSignUp = {
   username: "andy",
   bio: "",
   avi_url: "https://bit.ly/3cFRXW6", // link
-  
 };
 
 const ClientRegister = ({ dispatch, signUpSubmitClient }) => {
@@ -92,14 +90,15 @@ const ClientRegister = ({ dispatch, signUpSubmitClient }) => {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    console.log('FORM',form);
+    console.log("FORM", form);
     signUpSubmitClient(form);
     history.push("/login");
   };
 
   const handleChange = (ev) => {
-      const { name, value } = ev.target;
-      dispatch(setForm({
+    const { name, value } = ev.target;
+    dispatch(
+      setForm({
         ...form,
         [ev.target.name]: value,
       })
@@ -206,4 +205,4 @@ const mapStateToProps = (state) => {
   return state;
 };
 
-export default connect(mapStateToProps, { signUpSubmitClient })(ClientRegister)
+export default connect(mapStateToProps, { signUpSubmitClient })(ClientRegister);
