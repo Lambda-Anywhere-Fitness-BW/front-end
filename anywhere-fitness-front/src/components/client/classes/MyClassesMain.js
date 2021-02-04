@@ -1,7 +1,7 @@
 import React from "react";
 
 //module imports
-import AppHeader from "../../appHeader";
+import AppHeader from "../appHeader";
 import MyClasses from "./MyClasses";
 
 function MyClassesMain() {

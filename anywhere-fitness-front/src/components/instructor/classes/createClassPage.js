@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useHistory } from "react";
 //import Redux
 import { connect } from "react-redux";
 
@@ -23,6 +23,7 @@ console.log("HS", newClass);
 //added dispatch to this
 const CreateClassPage = ({ dispatch, createClass }) => {
   const [classForm, setClassForm] = useState(newClass);
+  const history = useHistory();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,6 +38,8 @@ const CreateClassPage = ({ dispatch, createClass }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     createClass(newClass);
+    //after the class is created, it takes to the list of classes
+    history.push("/login/instructor/classes");
   };
 
   const classes = useStyles();

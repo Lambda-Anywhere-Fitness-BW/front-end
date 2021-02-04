@@ -8,13 +8,13 @@ import { useHistory } from "react-router-dom";
 //moduleImport
 
 import InPunchPasses from "../punchpass/InPunchPasses";
-import AppHeader from "../../appHeader";
+import InAppHeader from "../InAppHeader";
 
 export default function InPunchPassMain() {
   //*If the classes state is empty, show the box
   return (
     <>
-      <AppHeader />
+      <InAppHeader />
       <InPunchPasses />
     </>
   );

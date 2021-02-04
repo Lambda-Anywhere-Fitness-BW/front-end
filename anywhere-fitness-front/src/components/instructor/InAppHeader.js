@@ -1,4 +1,7 @@
 import React from "react";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+
+//ui
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -25,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AppHeader() {
+export default function InAppHeader() {
   const classes = useStyles();
   const history = useHistory();
 
@@ -39,18 +42,31 @@ export default function AppHeader() {
             color="inherit"
             aria-label="menu"
           ></IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Anywhere Fitness
-          </Typography>
-          <Button className={classes.HeaderButton} color="inherit">
-            Search
-          </Button>
-          <Button className={classes.HeaderButton} color="inherit">
-            My PunchPass
-          </Button>
-          <Button className={classes.HeaderButton} color="inherit">
-            My Classes
-          </Button>
+          <NavLink exact to="/">
+            <Typography variant="h6" className={classes.title}>
+              Anywhere Fitness
+            </Typography>
+          </NavLink>
+          <NavLink to="/login/instructor/search">
+            <Button className={classes.HeaderButton} color="inherit">
+              Search
+            </Button>
+          </NavLink>
+          <NavLink to="/login/instructor/punchpasses">
+            <Button className={classes.HeaderButton} color="inherit">
+              My PunchPass
+            </Button>
+          </NavLink>
+          <NavLink to="/login/instructor/classes">
+            <Button className={classes.HeaderButton} color="inherit">
+              My Classes
+            </Button>
+          </NavLink>
+          <NavLink to="/login/instructor/profile">
+            <Button className={classes.HeaderButton} color="inherit">
+              Profile
+            </Button>
+          </NavLink>
 
           {/* ADD onClick + Routes here */}
           <Button

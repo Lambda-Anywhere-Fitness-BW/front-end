@@ -33,15 +33,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MyInstructorClasses() {
+const example = [45];
+
+export default function MyInstructorClasses({ deleteClass }) {
   const classes = useStyles();
   const history = useHistory();
 
-  //*If the classes state is empty, show the box
-  return (
-    <>
-      {/* //no classes */}
+  //!add onDelete to onclick
+  const onDelete = (e) => {
+    e.preventDefault();
+    deleteClass();
+    history.push("/login/instructor/classes");
+  };
 
+  if (example.length === 0) {
+    return (
       <Grid container className={classes.noClassBox}>
         <Grid item>
           <Typography className={classes.header} variant="h3">
@@ -49,30 +55,72 @@ export default function MyInstructorClasses() {
           </Typography>
         </Grid>
       </Grid>
-      {/* //with classes */}
-      <Grid container className={classes.ClassBox}>
-        <Grid item className={classes.textBox}>
-          <Typography variant="h2" className={classes.header}>
-            Kick-Boxing on Feb 12
-          </Typography>
-          <Typography variant="h3">Instructor: Daniel Vargas</Typography>
-          <Typography variant="h5">Location: K.O. Boxing Gym</Typography>
-          <Typography variant="h5">
-            Learn the basics of kickboxing with Daniel! You’ll spend 45 minutes
-            working like you never have!{" "}
-          </Typography>
-        </Grid>
-        <Grid item className={classes.imageBox}>
-          <Button variant="contained">Cancel Class</Button>
-        </Grid>
-        {/* <Grid container class>
-          <Grid item>
-            <img></img>
-            <Button variant="contained">Change Class</Button>
+    );
+  } else {
+    return (
+      <Grid>
+        <Grid container className={classes.ClassBox}>
+          <Grid item className={classes.textBox}>
+            <Typography variant="h2" className={classes.header}>
+              Kick-Boxing on Feb 12
+            </Typography>
+            <Typography variant="h3">Instructor: Daniel Vargas</Typography>
+            <Typography variant="h5">Location: K.O. Boxing Gym</Typography>
+            <Typography variant="h5">
+              Learn the basics of kickboxing with Daniel! You’ll spend 45
+              minutes working like you never have!{" "}
+            </Typography>
           </Grid>
-        </Grid> */}
+          <Grid item className={classes.imageBox}>
+            <Button onClick={onDelete} variant="contained">
+              Delete Class
+            </Button>
+          </Grid>
+        </Grid>
+
+        <Button variant="contained">Create a Class</Button>
       </Grid>
-      <Button variant="contained">Create a Class</Button>
-    </>
-  );
+    );
+  }
 }
+
+//   return (
+//     <>
+//       {/* //no classes */}
+
+//       <Grid container className={classes.noClassBox}>
+//         <Grid item>
+//           <Typography className={classes.header} variant="h3">
+//             You haven't created any classes. Click button above to create class.
+//           </Typography>
+//         </Grid>
+//       </Grid>
+//       {/* //with classes */}
+//       <Grid container className={classes.ClassBox}>
+//         <Grid item className={classes.textBox}>
+//           <Typography variant="h2" className={classes.header}>
+//             Kick-Boxing on Feb 12
+//           </Typography>
+//           <Typography variant="h3">Instructor: Daniel Vargas</Typography>
+//           <Typography variant="h5">Location: K.O. Boxing Gym</Typography>
+//           <Typography variant="h5">
+//             Learn the basics of kickboxing with Daniel! You’ll spend 45 minutes
+//             working like you never have!{" "}
+//           </Typography>
+//         </Grid>
+//         <Grid item className={classes.imageBox}>
+//           <Button onClick={onDelete} variant="contained">
+//             Delete Class
+//           </Button>
+//         </Grid>
+//         {/* <Grid container class>
+//           <Grid item>
+//             <img></img>
+//             <Button variant="contained">Change Class</Button>
+//           </Grid>
+//         </Grid> */}
+//       </Grid>
+//       <Button variant="contained">Create a Class</Button>
+//     </>
+//   );
+// }

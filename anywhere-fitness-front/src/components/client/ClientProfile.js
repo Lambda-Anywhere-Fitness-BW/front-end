@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import { Radio } from "@material-ui/core";
 
-import AppHeader from "../appHeader";
+import AppHeader from "./appHeader";
 
 const useStyles = makeStyles((theme) => ({
   root: {

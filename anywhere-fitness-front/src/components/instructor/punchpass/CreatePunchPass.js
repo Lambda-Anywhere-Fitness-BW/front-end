@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles, TextField, Button } from "@material-ui/core";
 
 //module imports
-import AppHeader from "../../appHeader";
+import AppHeader from "../../client/appHeader";
 
 const useStyles = makeStyles({
   main: {
