@@ -28,7 +28,11 @@ const App = () => {
     <>
       <Router>
         <Switch>
+<<<<<<< HEAD
+          <Route exact path="/" component={MarketingPage} />
+=======
           <Route exact path="/" component={MyClassesMain} />
+>>>>>>> ee3dd0767b9f793eb214929e1d0772a7805b8add
 
           <Route path="/login" component={Login} />
 
