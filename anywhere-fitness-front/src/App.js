@@ -25,13 +25,17 @@ const App = () => {
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={SearchMain} />
+          <Route exact path="/" component={MarketingPage} />
+
           <Route path="/login" component={Login} />
 
           <Route path="/register/client" component={ClientRegister} />
           <Route path="/register/instructor" component={InstructorRegister} />
-
-          <PrivateRoute path="/dash" />
+          <Route
+            path="/register/instructor/punchpass"
+            component={CreatePunchPass}
+          />
+          <PrivateRoute path="/login/classes" />
         </Switch>
       </Router>
     </>
