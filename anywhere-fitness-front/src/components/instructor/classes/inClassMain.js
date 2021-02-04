@@ -1,13 +1,13 @@
 import React from "react";
 
 //module imports
-import AppHeader from "../../appHeader";
+import InAppHeader from "../InAppHeader";
 import MyInstructorClasses from "./MyInstructorClasses";
 
 function InstructorClassesMain() {
   return (
     <div>
-      <AppHeader />
+      <InAppHeader />
       <MyInstructorClasses />
     </div>
   );

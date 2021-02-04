@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 //moduleImport
 
 import MyPunchPasses from "../punchpass/MyPunchPasses";
-import AppHeader from "../../appHeader";
+import AppHeader from "../appHeader";
 
 export default function PunchPassMain() {
   //*If the classes state is empty, show the box

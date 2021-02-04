@@ -1,4 +1,7 @@
 import React from "react";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+
+//ui
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -25,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function InstructorHeader() {
+export default function AppHeader() {
   const classes = useStyles();
   const history = useHistory();
 
@@ -42,15 +45,26 @@ export default function InstructorHeader() {
           <Typography variant="h6" className={classes.title}>
             Anywhere Fitness
           </Typography>
-          <Button className={classes.HeaderButton} color="inherit">
-            Search
-          </Button>
-          <Button className={classes.HeaderButton} color="inherit">
-            My PunchPass
-          </Button>
-          <Button className={classes.HeaderButton} color="inherit">
-            My Classes
-          </Button>
+          <NavLink to="/login/client/search">
+            <Button className={classes.HeaderButton} color="inherit">
+              Search
+            </Button>
+          </NavLink>
+          <NavLink to="/login/client/punchpasses">
+            <Button className={classes.HeaderButton} color="inherit">
+              My PunchPass
+            </Button>
+          </NavLink>
+          <NavLink to="/login/client/classes">
+            <Button className={classes.HeaderButton} color="inherit">
+              My Classes
+            </Button>
+          </NavLink>
+          <NavLink to="/login/client/profile">
+            <Button className={classes.HeaderButton} color="inherit">
+              Profile
+            </Button>
+          </NavLink>
 
           {/* ADD onClick + Routes here */}
           <Button

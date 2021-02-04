@@ -19,20 +19,31 @@ import CreatePunchPass from "./components/instructor/punchpass/CreatePunchPass";
 import ClientProfile from "./components/client/ClientProfile";
 import InstructorProfile from "./components/instructor/InstructorProfile";
 import SearchMain from "./components/client/Search/SearchMain";
+import MyInstructorClasses from "./components/instructor/classes/MyInstructorClasses";
+import InPunchPasses from "./components/instructor/punchpass/InPunchPasses";
 
 const App = () => {
   return (
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={MarketingPage} />
+          <Route exact path="/" component={InPunchPassMain} />
 
           <Route path="/login" component={Login} />
 
           <Route path="/register/client" component={ClientRegister} />
           <Route path="/register/instructor" component={InstructorRegister} />
-          <Route path ="/register/instructor/punchpass" component={CreatePunchPass} />
-          <PrivateRoute path="/login/classes" />
+          {/* <Route
+            path="/register/instructor/punchpass"
+            component={CreatePunchPass}
+          /> */}
+          <PrivateRoute path="/login/instructor/classes" />
+          <PrivateRoute path="/login/instructor/punchpasses" />
+          <PrivateRoute path="/login/instructor/profile" />
+          <PrivateRoute path="/login/client/search" />
+          <PrivateRoute path="/login/client/classes" />
+          <PrivateRoute path="/login/client/punchpasses" />
+          <PrivateRoute path="/login/client/profile" />
         </Switch>
       </Router>
     </>

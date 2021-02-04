@@ -6,7 +6,7 @@ import { Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
 //moduleImport
-import appHeader from "../../appHeader";
+import appHeader from "../../client/appHeader";
 
 const useStyles = makeStyles((theme) => ({
   noClassBox: {
@@ -36,44 +36,41 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const example = [5];
+
 export default function InPunchPasses() {
   const classes = useStyles();
   const history = useHistory();
 
   //*If the classes state is empty, show the box
-  return (
-    <>
-      <Typography>Instructor punch pass page</Typography>
-      {/* //no classes */}
+
+  if (example.length === 0) {
+    return (
       <Grid container className={classes.noClassBox}>
         <Grid item>
           <Typography className={classes.header} variant="h3">
             You haven't created a PunchPass.
           </Typography>
         </Grid>
-        {/* <Grid item>
-          <Button variant="contained">Browse classes</Button>
-        </Grid> */}
       </Grid>
-      <Grid container className={classes.ClassBox}>
-        <Grid item className={classes.textBox}>
-          <Typography variant="h2" className={classes.header}>
-            Name of PunchPass
-          </Typography>
-          <Typography variant="h3">Number of classes needed</Typography>
-          <Typography variant="h5">Class Name: 1,2,3 Boxing</Typography>
-          <Typography variant="h5">
-            Reward: One free water bottle and protein shaker
-          </Typography>
-        </Grid>
-        {/* <Grid container class>
-          <Grid item>
-            <img></img>
-            <Button variant="contained">Change Class</Button>
+    );
+  } else {
+    return (
+      <Grid>
+        <Grid container className={classes.ClassBox}>
+          <Grid item className={classes.textBox}>
+            <Typography variant="h2" className={classes.header}>
+              Name of PunchPass
+            </Typography>
+            <Typography variant="h3">Number of classes needed</Typography>
+            <Typography variant="h5">Class Name: 1,2,3 Boxing</Typography>
+            <Typography variant="h5">
+              Reward: One free water bottle and protein shaker
+            </Typography>
           </Grid>
-        </Grid> */}
+        </Grid>
+        <Button variant="contained">Create PunchPass</Button>
       </Grid>
-      <Button variant="contained">Create PunchPass</Button>
-    </>
-  );
+    );
+  }
 }

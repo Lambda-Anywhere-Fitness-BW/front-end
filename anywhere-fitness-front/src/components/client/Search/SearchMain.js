@@ -1,5 +1,5 @@
 import React from "react";
-import AppHeader from "../../appHeader";
+import AppHeader from "../appHeader";
 import SearchBar from "./SearchBar";
 
 const SearchMain = () => {

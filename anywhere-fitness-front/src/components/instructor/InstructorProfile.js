@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import { Radio } from "@material-ui/core";
 
-import AppHeader from "../appHeader";
+import InAppHeader from "../instructor/InAppHeader";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -89,7 +89,7 @@ export default function InstructorProfile() {
 
   return (
     <>
-      <AppHeader />
+      <InAppHeader />
       <div className={classes.root}>
         <section className="profile-page">
           <form className={classes.formStyles}>
