@@ -83,13 +83,14 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("INSIDE BUTTON CLICK");
+    
     axios
       .post("https://bw44-anywhere-fitness.herokuapp.com/login", loginForm) // ADD ENDPOINT and credentials here
       .then((res) => {
         console.log(res.data.payload);
         localStorage.setItem("token", res.data.payload);
         console.log("props", this.props);
-        this.props.history.push("/protected"); // redirects
+        this.props.history.push("/login/classes"); // redirects
       })
       .catch((err) => {
         console.log(err);
