@@ -21,13 +21,14 @@ import InstructorProfile from "./components/instructor/InstructorProfile";
 import SearchMain from "./components/client/Search/SearchMain";
 import MyInstructorClasses from "./components/instructor/classes/MyInstructorClasses";
 import InPunchPasses from "./components/instructor/punchpass/InPunchPasses";
+import InAppHeader from "./components/instructor/InAppHeader";
 
 const App = () => {
   return (
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={InPunchPassMain} />
+          <Route exact path="/" component={ClientRegister} />
 
           <Route path="/login" component={Login} />
 

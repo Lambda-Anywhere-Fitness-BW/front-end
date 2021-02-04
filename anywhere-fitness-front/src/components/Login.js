@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import axiosWithAuth from "../utils/hooks/axiosWithAuth";
 
 const useStyles = makeStyles({
   header: {
@@ -83,14 +84,14 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("INSIDE BUTTON CLICK");
-    
-    axios
-      .post("https://bw44-anywhere-fitness.herokuapp.com/login", loginForm) // ADD ENDPOINT and credentials here
+
+    axiosWithAuth()
+      .post("/login", loginForm) // ADD ENDPOINT and credentials here
       .then((res) => {
         console.log(res.data.payload);
         localStorage.setItem("token", res.data.payload);
         console.log("props", this.props);
-        this.props.history.push("/login/classes"); // redirects
+        this.props.history.push("/login/client/classes"); // redirects
       })
       .catch((err) => {
         console.log(err);

@@ -1,7 +1,13 @@
 import React from "react";
 
 const SearchList = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Grid container>
+        <Grid item></Grid>
+      </Grid>
+    </div>
+  );
 };
 
-export const SearchList;
+export default SearchList;
