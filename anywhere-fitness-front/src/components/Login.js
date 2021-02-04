@@ -3,6 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import axiosWithAuth from "../utils/hooks/axiosWithAuth";
+import { userLogin } from "../utils/actions/authActions";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles({
   header: {
@@ -64,11 +67,11 @@ const useStyles = makeStyles({
 });
 
 const initialLogin = {
-  username: "",
-  password: "",
+  username: "jusbenz",
+  password: "pufflah",
 };
 
-export default function Login() {
+const Login = ({ userLogin }) => {
   const [loginForm, setLoginForm] = useState(initialLogin);
 
   const classes = useStyles();
@@ -82,19 +85,7 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("INSIDE BUTTON CLICK");
-    
-    axios
-      .post("https://bw44-anywhere-fitness.herokuapp.com/login", loginForm) // ADD ENDPOINT and credentials here
-      .then((res) => {
-        console.log(res.data.payload);
-        localStorage.setItem("token", res.data.payload);
-        console.log("props", this.props);
-        this.props.history.push("/login/classes"); // redirects
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    userLogin(loginForm);
   };
 
   return (
@@ -116,7 +107,8 @@ export default function Login() {
             type="username"
             name="username"
             placeholder="USERNAME"
-            onChange={handleChange}
+            value={initialLogin.username}
+            // onChange={handleChange}
             required
             className={classes.inputStyles}
           />
@@ -126,7 +118,8 @@ export default function Login() {
           <input
             type="password"
             name="password"
-            onChange={handleChange}
+            // onChange={handleChange}
+            value={initialLogin.password}
             placeholder="PASSWORD"
             required
             className={classes.inputStyles}
@@ -139,4 +132,10 @@ export default function Login() {
       </form>
     </section>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  return state;
+};
+
+export default connect(mapStateToProps, { userLogin })(Login);

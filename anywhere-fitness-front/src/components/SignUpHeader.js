@@ -26,12 +26,9 @@ const useStyles = makeStyles((theme) => ({
   HeaderButton: {
     margin: "0 2% 0 2%",
   },
-  Link: {
-    textDecoration: "none",
-  },
 }));
 
-export default function AppHeader() {
+export default function SignUpHeader() {
   const classes = useStyles();
   const history = useHistory();
 
@@ -48,31 +45,11 @@ export default function AppHeader() {
           <Typography variant="h6" className={classes.title}>
             Anywhere Fitness
           </Typography>
-
-          <NavLink className={classes.Link} to="/login/client/punchpasses">
+          <NavLink exact to="/">
             <Button className={classes.HeaderButton} color="inherit">
-              My PunchPass
+              Home
             </Button>
           </NavLink>
-          <NavLink className={classes.Link} to="/login/client/classes">
-            <Button className={classes.HeaderButton} color="inherit">
-              My Classes
-            </Button>
-          </NavLink>
-          <NavLink className={classes.Link} to="/login/client/profile">
-            <Button className={classes.HeaderButton} color="inherit">
-              Profile
-            </Button>
-          </NavLink>
-
-          {/* ADD onClick + Routes here */}
-          {/* <Button
-            onClick={() => history.push("/login")}
-            className={classes.HeaderButton}
-            color="inherit"
-          >
-            Profile
-          </Button> */}
         </Toolbar>
       </AppBar>
     </div>
