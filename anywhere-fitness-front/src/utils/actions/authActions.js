@@ -22,7 +22,7 @@ export const signUpSubmitClient = (form) => (dispatch) => {
     //     "Content-Type": "application/x-www-form-urlencoded",
     //   },
     // },
-    
+    //
     )
     .then((res) => {
       dispatch({ type: USER_SIGNED_UP, payload: res.data });
