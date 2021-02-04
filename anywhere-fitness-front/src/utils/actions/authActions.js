@@ -22,7 +22,6 @@ export const signUpSubmitClient = (form) => (dispatch) => {
     //     "Content-Type": "application/x-www-form-urlencoded",
     //   },
     // },
-    
     )
     .then((res) => {
       dispatch({ type: USER_SIGNED_UP, payload: res.data });
@@ -33,9 +32,7 @@ export const signUpSubmitClient = (form) => (dispatch) => {
 };
 
 export const signUpSubmitInstructor = (form) => (dispatch) => {
-
     axios
-
       .post(`${API_BASE}/register/instructor`, form)
       .then((res) => {
         dispatch({ type: USER_SIGNED_UP, payload: res.data });

@@ -31,13 +31,8 @@ const App = () => {
 
           <Route path="/register/client" component={ClientRegister} />
           <Route path="/register/instructor" component={InstructorRegister} />
-
-          <Route
-            path="/register/instructor/punchpass"
-            component={CreatePunchPass}
-          />
+          <Route path ="/register/instructor/punchpass" component={CreatePunchPass} />
           <PrivateRoute path="/login/classes" />
-
         </Switch>
       </Router>
     </>
