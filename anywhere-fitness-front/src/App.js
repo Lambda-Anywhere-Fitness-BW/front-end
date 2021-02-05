@@ -4,7 +4,7 @@ import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 
 import ClientRegister from "./components/client/clientRegister";
-import InstructorRegister from "./components/client/clientRegister";
+import InstructorRegister from "./components/instructor/instructorRegister";
 
 import MarketingPage from "./marketing-comp/marketingPage";
 import CreateClassPage from "./components/instructor/classes/createClassPage";
@@ -23,13 +23,14 @@ import MyInstructorClasses from "./components/instructor/classes/MyInstructorCla
 import InPunchPasses from "./components/instructor/punchpass/InPunchPasses";
 import InAppHeader from "./components/instructor/InAppHeader";
 import SearchList from "./components/client/Search/SearchList";
+import LoginLoading from "./components/LoginLoading";
 
 const App = () => {
   return (
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={SearchMain} />
+          <Route exact path="/" component={MarketingPage} />
 
           <Route path="/login" component={Login} />
 
@@ -39,6 +40,7 @@ const App = () => {
             path="/register/instructor/punchpass"
             component={CreatePunchPass}
           /> */}
+          <PrivateRoute path="/loading" component={LoginLoading} />
           <PrivateRoute
             path="/instructor/classes"
             component={InstructorClassesMain}

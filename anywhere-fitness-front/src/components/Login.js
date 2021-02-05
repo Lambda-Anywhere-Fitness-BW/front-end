@@ -67,8 +67,8 @@ const useStyles = makeStyles({
 });
 
 const initialLogin = {
-  username: "jusbenz",
-  password: "pufflah",
+  username: "asohrabi",
+  password: "owaowa",
 };
 
 const Login = ({ userLogin }) => {
@@ -86,7 +86,8 @@ const Login = ({ userLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     userLogin(loginForm);
-    //history.push('')
+    history.push("/loading");
+    // history.push("/instructor/classes");
   };
 
   return (
