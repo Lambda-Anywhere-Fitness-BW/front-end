@@ -1,6 +1,6 @@
-import { useHistory } from "react";
+import React, { useHistory, useState } from "react";
 //Hooks
-import axiosWithAuth from "../hooks/axiosWithAuth";
+import axiosWithAuth from "../auth/axiosWithAuth";
 import axios from "axios";
 
 //Functional Imports
@@ -24,19 +24,22 @@ export const signUpSubmitClient = (form) => (dispatch) => {
 };
 
 export const signUpSubmitInstructor = (form) => (dispatch) => {
+  console.log('BEFORE AXIOS CALL INSIDE INSTRUCTOR SIGN UP')
   axios
     .post(`${API_BASE}/register/instructor`, form)
     .then((res) => {
+      console.log('INSIDE INSTRUCTOR SIGN UP')
       dispatch({ type: INSTRUCTOR_SIGNED_UP, payload: res.data });
     })
     .catch((err) => {
-      console.log(err);
+      console.log('INSTRUCTOR SIGN UP ERROR',err);
     });
 };
 
 export const userLogin = (loginForm) => (dispatch) => {
   // const history = useHistory();
   console.log(`${API_BASE}`);
+
   axios
     .post(
       `${API_BASE}/login`,
@@ -50,11 +53,29 @@ export const userLogin = (loginForm) => (dispatch) => {
       }
     )
     .then((res) => {
-      console.log(res.data);
+      console.log('userLogin',res.data);
       localStorage.setItem("token", res.data.access_token);
-      // history.push("/client/classes");
+      
     });
 };
+
+export const getUserInfo = () => {
+
+  //const [userData, setUserData] = useState(null);
+  // if sucessful, iterate through res.client.clientfitnessclasses.fitnessclasses.user.username === search term from login
+  // if so, res.client.clientfitnessclasses.fitnessclasses.user.roles.role.name = Client or Instructor
+
+  axiosWithAuth
+      .get(`${API_BASE}/users/getuserinfo`)
+      
+      .then((res) => {
+        return console.log('getUserinfo',res.data)
+      })
+      .catch(err => {
+        console.log("getUserinfo error", err)
+      })
+}
+
 
 //   axiosWithAuth()
 //     .post("/login", loginForm) // ADD ENDPOINT and credentials here

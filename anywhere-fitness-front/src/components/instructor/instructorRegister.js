@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { signUpSubmitInstructor } from '../../utils/actions/authActions'
+import { connect } from "react-redux";
 
 const useStyles = makeStyles({
   header: {
@@ -71,16 +72,18 @@ margin: '5% 0 0 0',
 })
 
 const initialSignUp = {
-  name: "",
-  username: '',
-  email: "", 
-  password: "", 
-  bio: "",
-  avi_url: "", // link
-  role: 'Instructor'
+  name: "mr john smith",
+  email: "jsmith@yahoo.com",
+  password: "1234", 
+  username: 'jsmith',
+  credentials: "sexy",
+  specialty: "pumping",
+  yearsexp: "5",
+  bio: "live laugh love",
+  avi_url: "https://bit.ly/39N4vsX", // link
 };
 
-export default function InstructorRegister(props) {
+const InstructorRegister = ({ signUpSubmitInstructor }) => {
 
   const classes = useStyles();
   const history = useHistory();
@@ -89,15 +92,17 @@ export default function InstructorRegister(props) {
 
   const handleSubmit = (ev) =>{
     ev.preventDefault();
+    console.log('clicked submit')
     signUpSubmitInstructor(form)
+    console.log('after sign up instructor fn called')
     history.push('/login')
     };
 
   const handleChange = (ev) => {
-      //const { name, value } = ev
+      const { name, value } = ev
       setForm({
           ...form,
-          [ev.target.name]: ev.target.value
+          [name]: ev.target.value
       })
       console.log(form)
   };
@@ -110,26 +115,14 @@ export default function InstructorRegister(props) {
       </div>
       <form className={classes.loginStyles}>
         <h2 className={classes.formh2h3}>ANYWHERE FITNESS</h2>
-        <h3 className={classes.formh2h3}>NEW USER</h3>
+        <h3 className={classes.formh2h3}>NEW INSTRUCTOR</h3>
         <label>
           <input
             type="text"
             name="name"
             onChange={handleChange}
-            // value={signUp.name}
+            value={form.name}
             placeholder="FULL NAME"
-            className={classes.inputStyles}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          <input
-            type="text"
-            name="username"
-            onChange={handleChange}
-            // value={signUp.name}
-            placeholder="USERNAME"
             className={classes.inputStyles}
             required
           />
@@ -140,7 +133,7 @@ export default function InstructorRegister(props) {
             type="email"
             name="email"
             onChange={handleChange}
-            // value={signUp.email}
+            value={form.email}
             placeholder="EMAIL"
             className={classes.inputStyles}
             required
@@ -152,8 +145,167 @@ export default function InstructorRegister(props) {
             type="password"
             name="password"
             onChange={handleChange}
-            // value={signUp.password}
+            value={form.password}
             placeholder="PASSWORD"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="text"
+            name="username"
+            onChange={handleChange}
+            value={form.username}
+            placeholder="USERNAME OVER 5 LETTERS"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="text"
+            name="credentials"
+            onChange={handleChange}
+            value={form.credentials}
+            placeholder="credentials"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="text"
+            name="specialty"
+            onChange={handleChange}
+            value={form.specialty}
+            placeholder="specialty"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="text"
+            name="yearsexp"
+            onChange={handleChange}
+            value={form.yearsexp}
+            placeholder="yearsexp"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        
+        <br />
+        <label>
+          <input
+            type="text"
+            name="bio"
+            onChange={handleChange}
+            value={form.bio}
+            placeholder="About You"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="text"
+            name="aviurl"
+            onChange={handleChange}
+            value={form.avi_url}
+            placeholder="image link"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        
+       
+        {/* <label>
+          <input
+            type="text"
+            name="name"
+            onChange={handleChange}
+            value={form.name}
+            placeholder="FULL NAME"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="text"
+            name="username"
+            onChange={handleChange}
+            value={form.username}
+            placeholder="USERNAME"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="email"
+            name="email"
+            onChange={handleChange}
+            value={form.email}
+            placeholder="EMAIL"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="password"
+            name="password"
+            onChange={handleChange}
+            value={form.password}
+            placeholder="PASSWORD"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="text"
+            name="credentials"
+            onChange={handleChange}
+            value={form.credentials}
+            placeholder="credentials"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="text"
+            name="specialty"
+            onChange={handleChange}
+            value={form.specialty}
+            placeholder="specialty"
+            className={classes.inputStyles}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          <input
+            type="number"
+            step="1"
+            name="yearsexp"
+            onChange={handleChange}
+            value={form.yearsexp}
+            placeholder="yearsexp"
             className={classes.inputStyles}
             required
           />
@@ -164,24 +316,25 @@ export default function InstructorRegister(props) {
             type="text"
             name="avi_url"
             onChange={handleChange}
-            // value={signUp.name}
+            value={form.avi_url}
             placeholder="image link"
             className={classes.inputStyles}
             required
           />
-        </label>
-        <br />
-        <label><p className={classes.textStyles}>Account Type</p>
-          <select name='role' className={classes.inputStyles}
-          onChange={handleChange} value={form.role}>
-            <option name='role' value='Instructor'>Instructor</option>
-          </select>
-        </label>
+        </label> */}
         <br />
         <button className={classes.buttonStyles}>SIGN UP</button>
         <br />
-        <button className={classes.buttonStyles}>CANCEL</button>
+        <button onClick={() => history.push('/')} className={classes.buttonStyles}>CANCEL</button>
       </form>
     </section>
   );
 }
+
+const mapStateToProps = (state) => {
+  return state;
+};
+
+export default connect(mapStateToProps, { signUpSubmitInstructor })(InstructorRegister);
+
+

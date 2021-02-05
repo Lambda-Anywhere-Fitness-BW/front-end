@@ -74,18 +74,17 @@ const useStyles = makeStyles({
 });
 
 const initialSignUp = {
-  name: "andrew",
-  email: "andy@andy.com",
-  password: "1234",
-  //!username must be over 5 characters
-  username: "bigandy",
+  name: "andrews",
+  email: "andys@andy.com",
+  password: "12345",
+  username: "bigandy5", //!username must be over 5 characters
   fitnesslevel: 3,
-  location: "LA",
-  bio: "I like turtles",
+  location: "SF",
+  bio: "I like dogs",
   aviurl: "https://bit.ly/3cFRXW6", // link
 };
 
-const ClientRegister = ({ dispatch, signUpSubmitClient }) => {
+const ClientRegister = ({ signUpSubmitClient }) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -111,7 +110,7 @@ const ClientRegister = ({ dispatch, signUpSubmitClient }) => {
       <SignUpHeader />
       <form className={classes.loginStyles}>
         <h2 className={classes.formh2h3}>ANYWHERE FITNESS</h2>
-        <h3 className={classes.formh2h3}>CLIENT REGISTER</h3>
+        <h3 className={classes.formh2h3}>NEW CLIENT</h3>
         <label>
           <input
             type="text"
@@ -229,3 +228,15 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { signUpSubmitClient })(ClientRegister);
+
+// const initialSignUp = {
+//   name: "",
+//   email: "",
+//   password: "", 
+//   username: '',
+//   credentials: "",
+//   specialty: "",
+//   yearsexp: "",
+//   bio: "",
+//   avi_url: "", // link
+// };

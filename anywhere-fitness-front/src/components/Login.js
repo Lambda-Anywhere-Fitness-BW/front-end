@@ -4,8 +4,9 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import axiosWithAuth from "../utils/hooks/axiosWithAuth";
-import { userLogin } from "../utils/actions/authActions";
+import { userLogin, getUserInfo } from "../utils/actions/authActions";
 import { connect } from "react-redux";
+
 
 const useStyles = makeStyles({
   header: {
@@ -67,8 +68,8 @@ const useStyles = makeStyles({
 });
 
 const initialLogin = {
-  username: "jusbenz",
-  password: "pufflah",
+  username: "tendies",
+  password: "tendies",
 };
 
 const Login = ({ userLogin }) => {
@@ -86,6 +87,8 @@ const Login = ({ userLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     userLogin(loginForm);
+    history.push("/client/classes");
+    //getUserInfo();
   };
 
   return (

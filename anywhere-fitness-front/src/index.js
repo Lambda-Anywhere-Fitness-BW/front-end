@@ -9,7 +9,7 @@ import rootReducer from "./utils/reducers";
 
 //import middlwarenp
 import thunk from "redux-thunk";
-import logger from "redux-logger";
+//import logger from "redux-logger";
 
 // const store = createStore(
 //   reducer,
@@ -25,10 +25,9 @@ const store = createStore(
 console.log("STORE", store);
 
 ReactDOM.render(
-  <React.StrictMode>
+  
     <Provider store={store}>
       <App />
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
   document.getElementById("root")
 );
