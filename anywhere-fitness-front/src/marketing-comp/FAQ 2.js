@@ -1,34 +1,31 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Button } from '@material-ui/core';
 
 const useStyles = makeStyles({
     header: {
        fontFamily: "'Chonburi', cursive",
        textAlign: 'center',
        fontSize: '3rem',
-       marginTop: '5rem',
-       marginLeft:'3.5%'
+       marginTop: '5rem'
     },
     boxes: {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        marginLeft: '3.5%'
     },
     box: {
         border: '2px solid #2160A0',
         borderRadius: '10px',
         padding: '2%',
-        width: '65%',
-        margin: '1% auto 1% auto'
+        width: '60%'
     },
     text: {
         fontSize: '1.5rem',
         fontWeight: 'bold'
     },
     text2: {
-        fontSize: '1.25rem',
-    },
+        fontSize: '1rem',
+    }
 })
 
 const FAQ = () => {
@@ -50,7 +47,7 @@ const FAQ = () => {
                 <div className={classes.box}>
                     <details>
                         <summary className={classes.text}>Who are the instructors?</summary>
-                        <p className={classes.text2}>We have a great range of instructors connected on AnyWhere Fitness that are skilled in many areas of fitness, such as kickboxing, yoga, spinning, and much more!</p>
+                        <p className={classes.text2}>We have a great range of instructors connected on AnyWhere Fitness, here's a list of all our <Button>Instructors</Button></p>
                     </details>
                 </div>
 
