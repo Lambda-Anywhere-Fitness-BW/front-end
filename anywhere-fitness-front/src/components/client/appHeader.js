@@ -72,7 +72,7 @@ export default function AppHeader() {
             className={classes.HeaderButton}
             color="inherit"
           >
-            Profile
+            Log-Out
           </Button>
         </Toolbar>
       </AppBar>
