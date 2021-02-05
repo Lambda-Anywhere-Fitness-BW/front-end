@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     // display: "grid",
     // gridTemplateColumns: "1fr 1fr",
     position: "relative",
-    zIndex: 10,
+    zIndex: 20,
     borderRadius: "10px",
   },
   modalContent: {

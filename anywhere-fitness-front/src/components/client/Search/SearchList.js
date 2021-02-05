@@ -49,7 +49,53 @@ const useStyles = makeStyles({
     fontSize: "18px",
     fontFamily: "'Montserrat', sans-serif",
   },
+  bookButton: {
+    zIndex: 1,
+  },
 });
+
+const dummyClasses = [
+  {
+    id: "",
+    name: "Boxing with Pam",
+    type: null,
+    start_time: "8:30 PM",
+    duration: "60 Mins",
+    intensity_level: 2,
+    location: "Stockton, CA",
+    max_size: 10,
+  },
+  {
+    id: "",
+    name: "Yoga Tuesdays",
+    type: null,
+    start_time: "8:00 AM",
+    duration: "60 Mins",
+    intensity_level: 3,
+    location: "Maker Park",
+    max_size: 10,
+  },
+  {
+    id: "",
+    name: "Big League Stretching",
+    type: null,
+    start_time: "5:30 PM",
+    duration: "60 mins",
+    intensity_level: 1,
+    location: "Big Boy Park",
+    max_size: 10,
+  },
+  {
+    id: "",
+    name: "Hardcore HiiT",
+    type: null,
+    start_time: "7:00 AM",
+    duration: "60 mins",
+    intensity_level: 3,
+    location: "Rocker Gym",
+    max_size: 20,
+  },
+];
 
 const SearchList = () => {
   const classes = useStyles();
@@ -64,49 +110,58 @@ const SearchList = () => {
   return (
     <>
       <ClassDetailsModal showModal={showModal} setShowModal={setShowModal} />
-      <Grid container className={classes.container}>
-        {/*  //main container */}
-        <Grid container className={classes.left}>
-          {" "}
-          {/*  //left box */}
-          <Grid item>
-            <Typography className={classes.leftText}>3:30 PM</Typography>
-            <Typography className={classes.leftText}>60 min</Typography>
-            <Typography className={classes.leftText}>5/25 spots</Typography>
-          </Grid>
-        </Grid>
-        {/*  //left box end */}
-        <Grid container className={classes.middle}>
-          {/*  //middle box */}
-          <Grid item>
-            <Typography className={classes.middleHead}>
-              Beginner Boxing at Loco Motion Studio
-            </Typography>
-            <Typography className={classes.instructor}>Dan Willy</Typography>
-            <Typography className={classes.bio}>
+      {dummyClasses.map((sessions, i) => {
+        return (
+          <Grid container key={i} className={classes.container}>
+            {/*  //main container */}
+            <Grid container className={classes.left}>
+              {" "}
+              {/*  //left box */}
+              <Grid item>
+                <Typography className={classes.leftText}>
+                  {sessions.start_time}
+                </Typography>
+                <Typography className={classes.leftText}>
+                  {sessions.duration}
+                </Typography>
+                <Typography className={classes.leftText}>
+                  {sessions.max_size} spots
+                </Typography>
+              </Grid>
+            </Grid>
+            {/*  //left box end */}
+            <Grid container className={classes.middle}>
+              {/*  //middle box */}
+              <Grid item>
+                <Typography className={classes.middleHead}>
+                  {sessions.name} at {sessions.location}
+                </Typography>
+                {/* <Typography className={classes.instructor}>{dummyClasses[0].max_size}</Typography> */}
+                {/* <Typography className={classes.bio}>
               In this class, you will hit your jabs & straight hooks. You won't
               be Mike Tyson, but you can whoop some butt.
-            </Typography>
+            </Typography> */}
+              </Grid>
+            </Grid>
+            {/*  //middle box */}
+            <Grid container className={classes.right}>
+              {/*  //right box */}
+              <Grid item>
+                <Typography className={classes.date}>No date </Typography>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="small"
+                  onClick={openModal}
+                  className={classes.bookButton}
+                >
+                  Book
+                </Button>
+              </Grid>
+            </Grid>
           </Grid>
-        </Grid>
-        {/*  //middle box */}
-        <Grid container className={classes.right}>
-          {/*  //right box */}
-          <Grid item>
-            <Typography className={classes.date}>02/15/2021</Typography>
-            <Button
-              variant="contained"
-              color="secondary"
-              size="small"
-              onClick={openModal}
-            >
-              Book
-            </Button>
-          </Grid>
-        </Grid>
-        {/*  //right box */}
-      </Grid>
-      {/*  //main container */}
+        );
+      })}
     </>
   );
 };
