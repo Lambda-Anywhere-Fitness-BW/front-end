@@ -47,8 +47,6 @@ const useStyles = makeStyles({
   },
 });
 
-//change
-
 export const ClassDetailsModal = ({ showModal, setShowModal, addClass }) => {
   const classes = useStyles();
   const modalRef = useRef();

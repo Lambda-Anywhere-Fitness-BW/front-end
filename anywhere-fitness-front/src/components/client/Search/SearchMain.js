@@ -9,7 +9,7 @@ export default function SearchMain() {
       <AppHeader />
       <SearchBar />
 
-      {/* We have to do map here */}
+      {/* We have to do map hesdfre */}
       <SearchList />
     </div>
   );
