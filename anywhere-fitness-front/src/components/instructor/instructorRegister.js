@@ -429,22 +429,12 @@ const InstructorRegister = ({ signUpSubmitInstructor }) => {
       </form>
     </section>
   );
-<<<<<<< HEAD
-}
-=======
 };
->>>>>>> be72de009bf72f44b013c6930e85dbf89d92f41e
 
 const mapStateToProps = (state) => {
   return state;
 };
 
-<<<<<<< HEAD
-export default connect(mapStateToProps, { signUpSubmitInstructor })(InstructorRegister);
-
-
-=======
 export default connect(mapStateToProps, { signUpSubmitInstructor })(
   InstructorRegister
 );
->>>>>>> be72de009bf72f44b013c6930e85dbf89d92f41e
