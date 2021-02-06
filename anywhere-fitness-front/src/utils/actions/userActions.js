@@ -16,7 +16,7 @@ export const GET_USER_INFO = "GET_USER_INFO";
 export const getUser = () => (dispatch) => {
   console.log("action reached");
   axiosWithAuth()
-    .get("/users/getuserinfo")
+    .get("https://bw44-anywhere-fitness.herokuapp.com/users/getuserinfo")
     .then((res) => {
       console.log(res.data);
       dispatch({ type: GET_USER_INFO, payload: res.data });
