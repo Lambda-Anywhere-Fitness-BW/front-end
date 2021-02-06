@@ -9,6 +9,7 @@ export const ADD_CLASS = "ADD_CLASS";
 export const REMOVE_CLASS = "REMOVE_CLASS";
 export const CREATE_PUNCHPASS = "CREATE_PUNCHPASS";
 export const GET_USER_INFO = "GET_USER_INFO";
+export const GET_INSTRUCTOR_CLASSES = "GET_INSTRUCTOR_CLASSES"
 
 //action creators returning action objects
 //!use dispatch
@@ -82,3 +83,16 @@ export const removeClass = (classObject) => (dispatch) => {
       console.log("error adding class");
     });
 };
+
+export const getInstructorClasses = (classObject) => (dispatch) => {
+  axiosWithAuth()
+    .post("classes endpoint")
+    .then((res) => {
+      dispatch({ type: GET_INSTRUCTOR_CLASSES, payload: classObject});
+    })
+    .catch((err) => {
+      console.log("error fetching instructor classes")
+    });
+}
+
+

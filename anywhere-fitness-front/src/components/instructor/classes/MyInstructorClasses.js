@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+import { deleteClass, getUser, getInstructorClasses } from '../../../utils/actions/userActions'
 
 const useStyles = makeStyles((theme) => ({
   noClassBox: {
@@ -35,9 +37,18 @@ const useStyles = makeStyles((theme) => ({
 
 const example = [45];
 
-export default function MyInstructorClasses({ deleteClass }) {
+const MyInstructorClasses = ({ deleteClass }) => {
   const classes = useStyles();
   const history = useHistory();
+
+  // create useEffect with a function that hits endpoint to display instructor classes
+
+  useEffect(() => {
+    getInstructorClasses();
+  }, [ ])
+
+
+
 
   //!add onDelete to onclick
   const onDelete = (e) => {
@@ -83,3 +94,11 @@ export default function MyInstructorClasses({ deleteClass }) {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    classes: state
+  }
+}
+
+export default connect(mapStateToProps, { deleteClass }) (MyInstructorClasses)

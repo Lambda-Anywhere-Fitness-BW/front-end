@@ -67,6 +67,15 @@ export const AppReducer = (state = initialState, action) => {
       return {
         user: { ...state, role: action.payload.roles[0].role.name },
       };
+
+
+    case "GET_INSTRUCTOR_CLASSES":
+      return {
+        user: {
+          ...state,
+          classes: action.payload // EDIT WITH SPECIFIC ENDPOINT DETAILS
+        }
+      }
     default:
       return state;
   }
