@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
-import { removeClass } from "../../../utils/actions/userActions";
+//redux
+import { connect } from "react-redux";
+
+import { removeClass, getClass } from "../../../utils/actions/userActions";
 const useStyles = makeStyles((theme) => ({
   noClassBox: {
     border: "solid 1px black",
@@ -34,12 +37,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-//!Example state. Need to bring in state from global state
-const example = [12];
+const example = [0];
 
-export default function AppHeader({ removeClass }) {
-  const classes = useStyles();
+//!Example state. Need to bring in state from global state
+
+function MyClasses({ getClass, removeClass, user }) {
+  const styles = useStyles();
   const history = useHistory();
+
+  useEffect(() => {
+    getClass();
+  }, []);
 
   const handleRemove = (e) => {
     e.preventDefault();
@@ -51,22 +59,22 @@ export default function AppHeader({ removeClass }) {
 
   if (example.length === 0) {
     return (
-      <Grid container className={classes.noClassBox}>
+      <Grid container className={styles.noClassBox}>
         <Grid item>
-          <Typography className={classes.header} variant="h3">
-            You haven't signed up for any classes.
+          <Typography className={styles.header} variant="h3">
+            You haven't signed up for any styles.
           </Typography>
         </Grid>
         <Grid item>
-          <Button variant="contained">Browse classes</Button>
+          <Button variant="contained">Browse styles</Button>
         </Grid>
       </Grid>
     );
   } else {
     return (
-      <Grid container className={classes.ClassBox}>
-        <Grid item className={classes.textBox}>
-          <Typography variant="h2" className={classes.header}>
+      <Grid container className={styles.ClassBox}>
+        <Grid item className={styles.textBox}>
+          <Typography variant="h2" className={styles.header}>
             Kick-Boxing on Feb 12
           </Typography>
           <Typography variant="h3">Instructor: Daniel Vargas</Typography>
@@ -76,7 +84,7 @@ export default function AppHeader({ removeClass }) {
             working like you never have!{" "}
           </Typography>
         </Grid>
-        <Grid item className={classes.imageBox}>
+        <Grid item className={styles.imageBox}>
           <Button onClick={handleRemove} variant="contained">
             Remove Class
           </Button>
@@ -91,6 +99,14 @@ export default function AppHeader({ removeClass }) {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state,
+  };
+};
+
+export default connect(mapStateToProps, { getClass, removeClass })(MyClasses);
 
 //   return (
 //     <>

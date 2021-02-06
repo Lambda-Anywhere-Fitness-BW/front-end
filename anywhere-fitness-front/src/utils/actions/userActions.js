@@ -5,6 +5,7 @@ import API_BASE from "../keys";
 
 export const CREATE_CLASS = "CREATE_CLASS";
 export const DELETE_CLASS = "DELETE_CLASS";
+export const GET_CLASS = "GET_CLASS";
 export const ADD_CLASS = "ADD_CLASS";
 export const REMOVE_CLASS = "REMOVE_CLASS";
 export const CREATE_PUNCHPASS = "CREATE_PUNCHPASS";
@@ -60,11 +61,27 @@ export const createPunchpass = (punchpass) => (dispatch) => {
 };
 
 //Client
+export const getClass = (classObject) => (dispatch) => {
+  axiosWithAuth()
+    .get("https://bw44-anywhere-fitness.herokuapp.com/clients/client/classes")
+    .then((res) => {
+      console.log("classes", res.data);
+      dispatch({ type: GET_CLASS, payload: res.data });
+    })
+    .catch((err) => {
+      console.log("error adding class");
+    });
+};
+
 export const addClass = (classObject) => (dispatch) => {
   axiosWithAuth()
-    .post("classes endpoint")
+    .post(
+      "https://bw44-anywhere-fitness.herokuapp.com/clients/client/classes",
+      classObject
+    )
     //!client view for adding classes not created yet
     .then((res) => {
+      console.log("classes", res.data);
       dispatch({ type: ADD_CLASS, payload: res.data.classes });
     })
     .catch((err) => {
