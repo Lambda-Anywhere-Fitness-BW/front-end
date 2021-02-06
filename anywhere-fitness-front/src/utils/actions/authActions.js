@@ -56,15 +56,3 @@ export const userLogin = (loginForm) => (dispatch) => {
       // history.push("/client/classes");
     });
 };
-
-//   axiosWithAuth()
-//     .post("/login", loginForm) // ADD ENDPOINT and credentials here
-//     .then((res) => {
-//       console.log("Res", res);
-//       localStorage.setItem("token", res.data.payload);
-//       // this.props.history.push(`/client/${id}); // redirects
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
