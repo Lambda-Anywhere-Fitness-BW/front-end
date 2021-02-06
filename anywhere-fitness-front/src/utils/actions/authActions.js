@@ -28,7 +28,7 @@ export const signUpSubmitInstructor = (form) => (dispatch) => {
   axios
     .post(`${API_BASE}/register/instructor`, form)
     .then((res) => {
-      console.log('INSIDE INSTRUCTOR SIGN UP')
+      console.log("action reached");
       dispatch({ type: INSTRUCTOR_SIGNED_UP, payload: res.data });
     })
     .catch((err) => {

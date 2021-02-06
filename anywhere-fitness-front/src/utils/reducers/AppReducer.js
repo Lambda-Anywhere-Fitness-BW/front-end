@@ -3,6 +3,7 @@
 const initialState = {
   user: {
     username: "",
+    role: "",
     classes: [],
   },
   classes: [
@@ -61,6 +62,10 @@ export const AppReducer = (state = initialState, action) => {
       //!need to map punchpass to attendees of a particular class
       return {
         punchpass: { ...state, punchpass: [...state, action.payload] },
+      };
+    case "GET_USER_INFO":
+      return {
+        user: { ...state, role: action.payload },
       };
     default:
       return state;

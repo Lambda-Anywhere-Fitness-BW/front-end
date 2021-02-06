@@ -49,17 +49,17 @@ export default function AppHeader() {
             Anywhere Fitness
           </Typography>
 
-          <NavLink className={classes.Link} to="/login/client/punchpasses">
+          <NavLink className={classes.Link} to="/instructor/punchpasses">
             <Button className={classes.HeaderButton} color="inherit">
               My PunchPass
             </Button>
           </NavLink>
-          <NavLink className={classes.Link} to="/login/client/classes">
+          <NavLink className={classes.Link} to="/instructor/classes">
             <Button className={classes.HeaderButton} color="inherit">
               My Classes
             </Button>
           </NavLink>
-          <NavLink className={classes.Link} to="/login/client/profile">
+          <NavLink className={classes.Link} to="/instructor/profile">
             <Button className={classes.HeaderButton} color="inherit">
               Profile
             </Button>

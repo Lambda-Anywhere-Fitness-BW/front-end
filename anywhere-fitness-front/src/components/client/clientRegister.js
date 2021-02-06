@@ -74,10 +74,11 @@ const useStyles = makeStyles({
 });
 
 const initialSignUp = {
-  name: "andrews",
-  email: "andys@andy.com",
-  password: "12345",
-  username: "bigandy5", //!username must be over 5 characters
+  name: "uzi",
+  email: "andy@andy.com",
+  password: "1234",
+  //!username must be over 5 characters
+  username: "liluzivert",
   fitnesslevel: 3,
   location: "SF",
   bio: "I like dogs",

@@ -22,8 +22,8 @@ import SearchMain from "./components/client/Search/SearchMain";
 import MyInstructorClasses from "./components/instructor/classes/MyInstructorClasses";
 import InPunchPasses from "./components/instructor/punchpass/InPunchPasses";
 import InAppHeader from "./components/instructor/InAppHeader";
-import AppHeader from "./components/client/appHeader";
-import Search from "@material-ui/icons/Search";
+import SearchList from "./components/client/Search/SearchList";
+import LoginLoading from "./components/LoginLoading";
 
 const App = () => {
   return (
@@ -31,6 +31,10 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={MarketingPage} />
+
+          <Route exact path="/" component={MarketingPage} />
+
+          {/* <Route exact path="/" component={MyClassesMain} /> */}
 
           <Route path="/login" component={Login} />
 
@@ -40,13 +44,23 @@ const App = () => {
             path="/register/instructor/punchpass"
             component={CreatePunchPass}
           /> */}
-          <PrivateRoute path="/instructor/classes" />
-          <PrivateRoute path="/instructor/punchpasses" />
-          <PrivateRoute path="/instructor/profile" />
+          <PrivateRoute path="/loading" component={LoginLoading} />
+          <PrivateRoute
+            path="/instructor/classes"
+            component={InstructorClassesMain}
+          />
+          <PrivateRoute
+            path="/instructor/punchpasses"
+            component={InPunchPassMain}
+          />
+          <PrivateRoute
+            path="/instructor/profile"
+            component={InstructorProfile}
+          />
           <PrivateRoute path="/client/search" component={SearchMain} />
-          <PrivateRoute path="/client/classes" component = {MyClassesMain}/>
+          <PrivateRoute path="/client/classes" component={MyClassesMain} />
           <PrivateRoute path="/client/punchpasses" component={PunchPassMain} />
-          <PrivateRoute path="/client/profile" component={ClientProfile}/>
+          <PrivateRoute path="/client/profile" component={ClientProfile} />
         </Switch>
       </Router>
     </>

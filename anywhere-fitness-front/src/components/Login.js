@@ -3,8 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+<<<<<<< HEAD
 import axiosWithAuth from "../utils/hooks/axiosWithAuth";
 import { userLogin, getUserInfo } from "../utils/actions/authActions";
+=======
+import axiosWithAuth from "../utils/auth/axiosWithAuth";
+import { userLogin } from "../utils/actions/authActions";
+>>>>>>> be72de009bf72f44b013c6930e85dbf89d92f41e
 import { connect } from "react-redux";
 
 
@@ -68,8 +73,8 @@ const useStyles = makeStyles({
 });
 
 const initialLogin = {
-  username: "tendies",
-  password: "tendies",
+  username: "asohrabi",
+  password: "owaowa",
 };
 
 const Login = ({ userLogin }) => {
@@ -87,8 +92,8 @@ const Login = ({ userLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     userLogin(loginForm);
-    history.push("/client/classes");
-    //getUserInfo();
+    history.push("/loading");
+    // history.push("/instructor/classes");
   };
 
   return (

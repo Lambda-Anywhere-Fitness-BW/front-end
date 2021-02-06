@@ -72,14 +72,13 @@ export default function AppHeader() {
           </NavLink>
 
           {/* ADD onClick + Routes here */}
-          <NavLink to="/login">
-            <Button
-                onClick={handleLogout}
-                className={classes.HeaderButton}
-                color="inherit">
-                Logout
-              </Button>
-          </NavLink>
+          <Button
+            onClick={() => history.push("/login")}
+            className={classes.HeaderButton}
+            color="inherit"
+          >
+            Log-Out
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
