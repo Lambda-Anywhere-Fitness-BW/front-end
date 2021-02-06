@@ -45,22 +45,22 @@ export default function AppHeader() {
           <Typography variant="h6" className={classes.title}>
             Anywhere Fitness
           </Typography>
-          <NavLink to="/login/client/search">
+          <NavLink to="/client/search">
             <Button className={classes.HeaderButton} color="inherit">
               Search
             </Button>
           </NavLink>
-          <NavLink to="/login/client/punchpasses">
+          <NavLink to="/client/punchpasses">
             <Button className={classes.HeaderButton} color="inherit">
               My PunchPass
             </Button>
           </NavLink>
-          <NavLink to="/login/client/classes">
+          <NavLink to="/client/classes">
             <Button className={classes.HeaderButton} color="inherit">
               My Classes
             </Button>
           </NavLink>
-          <NavLink to="/login/client/profile">
+          <NavLink to="/client/profile">
             <Button className={classes.HeaderButton} color="inherit">
               Profile
             </Button>
@@ -72,7 +72,7 @@ export default function AppHeader() {
             className={classes.HeaderButton}
             color="inherit"
           >
-            Profile
+            Log-Out
           </Button>
         </Toolbar>
       </AppBar>

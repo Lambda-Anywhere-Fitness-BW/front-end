@@ -4,7 +4,7 @@ import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 
 import ClientRegister from "./components/client/clientRegister";
-import InstructorRegister from "./components/client/clientRegister";
+import InstructorRegister from "./components/instructor/instructorRegister";
 
 import MarketingPage from "./marketing-comp/marketingPage";
 import CreateClassPage from "./components/instructor/classes/createClassPage";
@@ -22,17 +22,19 @@ import SearchMain from "./components/client/Search/SearchMain";
 import MyInstructorClasses from "./components/instructor/classes/MyInstructorClasses";
 import InPunchPasses from "./components/instructor/punchpass/InPunchPasses";
 import InAppHeader from "./components/instructor/InAppHeader";
+import SearchList from "./components/client/Search/SearchList";
+import LoginLoading from "./components/LoginLoading";
 
 const App = () => {
   return (
     <>
       <Router>
         <Switch>
-{/* <<<<<<< HEAD */}
           <Route exact path="/" component={MarketingPage} />
-{/* ======= */}
+
+          <Route exact path="/" component={MarketingPage} />
+
           {/* <Route exact path="/" component={MyClassesMain} /> */}
-{/* >>>>>>> ee3dd0767b9f793eb214929e1d0772a7805b8add */}
 
           <Route path="/login" component={Login} />
 
@@ -42,13 +44,23 @@ const App = () => {
             path="/register/instructor/punchpass"
             component={CreatePunchPass}
           /> */}
-          <PrivateRoute path="/instructor/classes" />
-          <PrivateRoute path="/instructor/punchpasses" />
-          <PrivateRoute path="/instructor/profile" />
-          <PrivateRoute path="/client/search" />
-          <PrivateRoute path="/client/classes" />
-          <PrivateRoute path="/client/punchpasses" />
-          <PrivateRoute path="/client/profile" />
+          <PrivateRoute path="/loading" component={LoginLoading} />
+          <PrivateRoute
+            path="/instructor/classes"
+            component={InstructorClassesMain}
+          />
+          <PrivateRoute
+            path="/instructor/punchpasses"
+            component={InPunchPassMain}
+          />
+          <PrivateRoute
+            path="/instructor/profile"
+            component={InstructorProfile}
+          />
+          <PrivateRoute path="/client/search" component={SearchMain} />
+          <PrivateRoute path="/client/classes" component={MyClassesMain} />
+          <PrivateRoute path="/client/punchpasses" component={PunchPassMain} />
+          <PrivateRoute path="/client/profile" component={ClientProfile} />
         </Switch>
       </Router>
     </>

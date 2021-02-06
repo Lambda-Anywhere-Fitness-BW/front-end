@@ -1,14 +1,31 @@
 import PrivateRoute from "../../components/PrivateRoute";
-import axiosWithAuth from "../hooks/axiosWithAuth";
+import axios from "axios";
+import axiosWithAuth from "../auth/axiosWithAuth";
+import API_BASE from "../keys";
 
 export const CREATE_CLASS = "CREATE_CLASS";
 export const DELETE_CLASS = "DELETE_CLASS";
 export const ADD_CLASS = "ADD_CLASS";
 export const REMOVE_CLASS = "REMOVE_CLASS";
 export const CREATE_PUNCHPASS = "CREATE_PUNCHPASS";
+export const GET_USER_INFO = "GET_USER_INFO";
 
 //action creators returning action objects
 //!use dispatch
+
+export const getUser = () => (dispatch) => {
+  console.log("action reached");
+  axiosWithAuth()
+    .get("https://bw44-anywhere-fitness.herokuapp.com/users/getuserinfo")
+    .then((res) => {
+      console.log("IT WORKED", res.data);
+      dispatch({ type: GET_USER_INFO, payload: res.data });
+    })
+    .catch((err) => {
+      console.log("ERROR", err.message);
+    });
+};
+
 export const createClass = (classObject) => (dispatch) => {
   axiosWithAuth()
     .post("classes endpoint")

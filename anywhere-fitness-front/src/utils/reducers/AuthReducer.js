@@ -22,7 +22,7 @@ const initialState = {
     password: "",
     username: "",
     credentials: "",
-    speciality: "",
+    specialty: "",
     yearsexp: 0,
     bio: "",
     aviurl: "",
@@ -51,11 +51,12 @@ export const AuthReducer = (state = initialState, action) => {
         password: action.payload.password,
         username: action.payload.username,
         credentials: action.payload.credentials,
-        speciality: action.payload.location,
+        specialty: action.payload.specialty,
         yearsexp: action.payload.yearsexp,
         bio: action.payload.bio,
         aviurl: action.payload.aviurl,
       };
+
     case USER_LOGGED_IN:
       return {
         ...state,

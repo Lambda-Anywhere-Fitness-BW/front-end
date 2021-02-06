@@ -10,3 +10,5 @@ export const axiosWithAuth = () => {
     baseURL: "https://bw44-anywhere-fitness.herokuapp.com",
   });
 };
+
+export default axiosWithAuth;

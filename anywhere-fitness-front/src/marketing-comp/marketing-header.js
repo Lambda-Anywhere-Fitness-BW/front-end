@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import { useHistory } from "react-router-dom";
 
+import Scroll from "react-scroll";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -25,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const ScrollLink = Scroll.ScrollLink;
+
 export default function MarketingHeader() {
   const classes = useStyles();
   const history = useHistory();
@@ -42,9 +46,10 @@ export default function MarketingHeader() {
           <Typography variant="h6" className={classes.title}>
             Anywhere Fitness
           </Typography>
-          <Button className={classes.HeaderButton} color="inherit">
-            How it works
-          </Button>
+          <ScrollLink>
+            {/* <Button className={classes.HeaderButton} color="inherit"> */}
+            {/* </Button> */}
+          </ScrollLink>
           <Button className={classes.HeaderButton} color="inherit">
             Pricing
           </Button>
@@ -53,13 +58,25 @@ export default function MarketingHeader() {
           </Button>
 
           {/* ADD onClick + Routes here */}
-          <Button onClick={() => history.push('/login')} className={classes.HeaderButton} color="inherit">
+          <Button
+            onClick={() => history.push("/login")}
+            className={classes.HeaderButton}
+            color="inherit"
+          >
             Log-in
           </Button>
-          <Button onClick={() => history.push('/register/client')} className={classes.HeaderButton} color="inherit">
+          <Button
+            onClick={() => history.push("/register/client")}
+            className={classes.HeaderButton}
+            color="inherit"
+          >
             Client Sign-Up
           </Button>
-          <Button onClick={() => history.push('/register/instructor')} className={classes.HeaderButton} color="inherit">
+          <Button
+            onClick={() => history.push("/register/instructor")}
+            className={classes.HeaderButton}
+            color="inherit"
+          >
             Instructor Sign-Up
           </Button>
         </Toolbar>

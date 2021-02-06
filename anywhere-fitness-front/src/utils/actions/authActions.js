@@ -1,6 +1,6 @@
 import { useHistory } from "react";
 //Hooks
-import axiosWithAuth from "../hooks/axiosWithAuth";
+import axiosWithAuth from "../auth/axiosWithAuth";
 import axios from "axios";
 
 //Functional Imports
@@ -27,6 +27,7 @@ export const signUpSubmitInstructor = (form) => (dispatch) => {
   axios
     .post(`${API_BASE}/register/instructor`, form)
     .then((res) => {
+      console.log("action reached");
       dispatch({ type: INSTRUCTOR_SIGNED_UP, payload: res.data });
     })
     .catch((err) => {
