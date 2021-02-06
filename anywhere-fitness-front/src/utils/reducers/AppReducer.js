@@ -65,7 +65,9 @@ export const AppReducer = (state = initialState, action) => {
       };
     case "GET_USER_INFO":
       return {
-        user: { ...state, role: action.payload },
+        user: { ...state, 
+            role: action.payload.roles[0].role.name
+           },
       };
     default:
       return state;

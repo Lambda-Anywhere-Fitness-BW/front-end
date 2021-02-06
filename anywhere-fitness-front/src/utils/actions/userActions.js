@@ -18,7 +18,7 @@ export const getUser = () => (dispatch) => {
   axiosWithAuth()
     .get("https://bw44-anywhere-fitness.herokuapp.com/users/getuserinfo")
     .then((res) => {
-      console.log("IT WORKED", res.data);
+      console.log("IT WORKED - ROLE", res.data);
       dispatch({ type: GET_USER_INFO, payload: res.data });
     })
     .catch((err) => {
