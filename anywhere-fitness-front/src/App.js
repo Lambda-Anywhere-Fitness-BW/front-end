@@ -32,18 +32,11 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={MarketingPage} />
 
-          <Route exact path="/" component={MarketingPage} />
-
-          {/* <Route exact path="/" component={MyClassesMain} /> */}
-
           <Route path="/login" component={Login} />
 
           <Route path="/register/client" component={ClientRegister} />
           <Route path="/register/instructor" component={InstructorRegister} />
-          {/* <Route
-            path="/register/instructor/punchpass"
-            component={CreatePunchPass}
-          /> */}
+        
           <PrivateRoute path="/loading" component={LoginLoading} />
           <PrivateRoute
             path="/instructor/classes"

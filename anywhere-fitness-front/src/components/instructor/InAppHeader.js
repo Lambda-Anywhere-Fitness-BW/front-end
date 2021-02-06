@@ -66,13 +66,16 @@ export default function AppHeader() {
           </NavLink>
 
           {/* ADD onClick + Routes here */}
-          {/* <Button
-            onClick={() => history.push("/login")}
-            className={classes.HeaderButton}
-            color="inherit"
-          >
-            Profile
-          </Button> */}
+          <NavLink to="/">
+            <Button
+              //onClick={() => history.push("/")}
+              className={classes.HeaderButton}
+              color="inherit"
+            >
+              Logout
+            </Button>
+          </NavLink>
+          
         </Toolbar>
       </AppBar>
     </div>
