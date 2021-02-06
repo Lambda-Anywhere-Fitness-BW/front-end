@@ -1,6 +1,6 @@
 import PrivateRoute from "../../components/PrivateRoute";
 import axios from "axios";
-import axiosWithAuth from "../hooks/axiosWithAuth";
+import axiosWithAuth from "../auth/axiosWithAuth";
 import API_BASE from "../keys";
 
 export const CREATE_CLASS = "CREATE_CLASS";
@@ -18,7 +18,7 @@ export const getUser = () => (dispatch) => {
   axiosWithAuth()
     .get("https://bw44-anywhere-fitness.herokuapp.com/users/getuserinfo")
     .then((res) => {
-      console.log(res.data);
+      console.log("IT WORKED", res.data);
       dispatch({ type: GET_USER_INFO, payload: res.data });
     })
     .catch((err) => {

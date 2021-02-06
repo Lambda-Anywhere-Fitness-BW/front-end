@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import axiosWithAuth from "../utils/hooks/axiosWithAuth";
+import axiosWithAuth from "../utils/auth/axiosWithAuth";
 import { userLogin } from "../utils/actions/authActions";
 import { connect } from "react-redux";
 

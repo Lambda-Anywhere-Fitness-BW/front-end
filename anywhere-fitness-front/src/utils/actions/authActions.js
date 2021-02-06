@@ -1,6 +1,6 @@
 import { useHistory } from "react";
 //Hooks
-import axiosWithAuth from "../hooks/axiosWithAuth";
+import axiosWithAuth from "../auth/axiosWithAuth";
 import axios from "axios";
 
 //Functional Imports
