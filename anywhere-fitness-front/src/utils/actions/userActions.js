@@ -19,7 +19,7 @@ export const getUser = () => (dispatch) => {
   axiosWithAuth()
     .get("https://bw44-anywhere-fitness.herokuapp.com/users/getuserinfo")
     .then((res) => {
-      console.log("IT WORKED - ROLE", res.data);
+      console.log("IT WORKED - ROLE", res.data.roles[0].role.name);
       dispatch({ type: GET_USER_INFO, payload: res.data });
     })
     .catch((err) => {
@@ -61,15 +61,15 @@ export const createPunchpass = (punchpass) => (dispatch) => {
 };
 
 //Client
-export const getClass = (classObject) => (dispatch) => {
+export const getClass = () => (dispatch) => {
   axiosWithAuth()
     .get("https://bw44-anywhere-fitness.herokuapp.com/clients/client/classes")
     .then((res) => {
-      console.log("classes", res.data);
-      dispatch({ type: GET_CLASS, payload: res.data });
+      console.log("getClass", res.data.client);
+      dispatch({ type: GET_CLASS, payload: res.data.client });
     })
     .catch((err) => {
-      console.log("error adding class");
+      console.log("error getting class", err);
     });
 };
 

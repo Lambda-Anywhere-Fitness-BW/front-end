@@ -51,7 +51,7 @@ export const AppReducer = (state = initialState, action) => {
       };
     case "GET_CLASS":
       return {
-        user: { ...state, classes: action.payload.client.clientfitnessclasses },
+        user: { ...state, classes: action.payload.clientfitnessclasses },
       };
     case "REMOVE_CLASS":
       return {

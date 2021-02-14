@@ -52,7 +52,7 @@ function MyClasses({ getClass, removeClass, user }) {
   const handleRemove = (e) => {
     e.preventDefault();
     removeClass();
-    history.push("/login/client/classes");
+    history.push("/client/classes");
   };
 
   //*If the classes state is empty, show the box
@@ -104,6 +104,7 @@ const mapStateToProps = (state) => {
   return {
     user: state,
   };
+  console.log("page state", state);
 };
 
 export default connect(mapStateToProps, { getClass, removeClass })(MyClasses);

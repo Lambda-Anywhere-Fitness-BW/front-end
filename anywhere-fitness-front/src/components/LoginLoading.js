@@ -24,9 +24,11 @@ function LoginLoading({ getUser, role }) {
 
   //! if role=instructor, history.push('/instructor/classes'), if role=client, history.push('/client/classes')
 
-  // if (role === "Instructor") {
-  //   history.push("/instructor/classes`");
-  // }
+  if (role === "INSTRUCTOR") {
+    history.push("/instructor/classes");
+  } else {
+    history.push("/client/classes");
+  }
 
   return (
     <>

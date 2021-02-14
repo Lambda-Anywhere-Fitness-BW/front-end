@@ -86,7 +86,7 @@ const Login = ({ userLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     userLogin(loginForm);
-    history.push("/client/classes");
+    history.push("/loading");
     // history.push("/instructor/classes");
   };
 
